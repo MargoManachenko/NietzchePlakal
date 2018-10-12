@@ -1,155 +1,213 @@
+$white: #fff;
+$naming: #afafaf;
+$brown-grey: #a1a1a1;
+$milk: #dedede;
+$milk-reverse: #ededed;
+$milk-oreo: #6d6d6d;
+$dark-primary-color-hover: #515151;
+$black: #2f2f2f;
+
+$name-text: #afafaf;
+$theme-text-active: #afafaf;
+$theme-text: #515151;
+$theme-line-active: #979797;
+$theme-line: #000000;
+
 body {
   margin: 0;
   font-family: 'Brandon_bld', sans-serif;
   font-size: 12px;
-  font-weight: 500; }
+  font-weight: 500;
+}
 
 ul {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .wrapper {
   display: grid;
   grid-template-columns: 20% 80%;
-  grid-template-rows: 100vh; }
+  grid-template-rows: 100vh;
+}
 
 .wrapper.dark a {
-  text-decoration: none; }
+  //color: #afafaf;
+  text-decoration: none;
+}
 
 .wrapper.dark h2 {
   font-family: 'Brandon_light', sans-serif;
   font-size: 14px;
-  color: #6d6d6d;
+  color: $milk-oreo;
   line-height: 1.6;
   letter-spacing: 4px;
-  margin: auto; }
+  margin: auto;
+}
 
 .wrapper.dark .sidebar {
-  background-color: #1e1e1e; }
+  background-color: #1e1e1e;
+}
 
 .wrapper.dark .content {
-  background-color: #1d1d1d; }
+  background-color: #1d1d1d;
+}
 
 .content,
 .sidebar {
   display: grid;
-  grid-auto-rows: 21.25vh 70vh 8.75vh; }
-
-.sidebar-menu {
+  grid-auto-rows: 21.25vh 70vh 8.75vh;
+}
+.sidebar-menu{
   display: flex;
   justify-content: center;
-  align-items: center; }
-
-.sidebar-menu a {
+  align-items: center;
+}
+.sidebar-menu a{
   letter-spacing: 0.5em;
   transform: rotate(270deg);
-  color: #6d6d6d; }
-
-.sidebar-menu a:hover {
-  color: #dedede; }
-
+  color: $milk-oreo;
+}
+.sidebar-menu a:hover{
+  color: $milk;
+}
 header {
   display: grid;
+  //grid-template-columns: 1fr 130px;
   grid-template-columns: 1fr 150px;
   padding: 8vh 9.5vh 0;
-  grid-gap: 10%; }
+  grid-gap: 10%;
+
+}
 
 .header-menu a {
-  color: #fff; }
+  color: $white;
+}
 
 .header-menu .active a,
 .header-menu a:hover {
-  color: #a1a1a1; }
+  color: $brown-grey;
+}
 
 .header-menu {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+}
 
 .news a {
+  //font-size: 8px;
   font-size: 10px;
   letter-spacing: 2.8px;
-  color: #dedede; }
+  color: $milk;
+}
 
 .news .date {
   display: block;
-  color: #dedede; }
+  color: $milk;
+}
 
 .news .event {
-  color: #6d6d6d; }
+  color: $milk-oreo;
+}
 
 .news li {
   line-height: 1.1;
-  margin-bottom: 1.2em; }
+  margin-bottom: 1.2em;
+}
 
 .news li:nth-child(2) {
-  opacity: 0.5; }
+  opacity: 0.5;
+}
 
 .news li:last-child {
   margin-bottom: 0;
-  opacity: 0.25; }
+  opacity: 0.25;
+}
 
+//find a better way to do this
 .news li:hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
 footer {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  justify-items: center; }
+  justify-items: center;
+}
 
 footer .lang a {
-  color: #2f2f2f;
-  margin-right: 1em; }
+  color: $black;
+  margin-right: 1em;
+}
 
 footer .lang a:last-child {
-  margin-right: 0; }
+  margin-right: 0;
+}
 
 footer .lang a:hover,
 footer .lang a.active {
-  color: #ededed; }
+  color: $milk-reverse;
+}
 
 footer .theme {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   font-family: Brandon_light, sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 footer .theme a {
   display: block;
-  color: #515151; }
+  color: $theme-text;
+}
 
 footer .theme a:hover,
 footer .theme a.active {
-  color: #afafaf; }
+  color: $theme-text-active;
+}
 
 footer .theme .line {
   display: block;
   width: 2em;
-  border-top: 1px solid #000000; }
+  border-top: 1px solid $theme-line;
+}
 
 footer .theme .line.active {
-  border-top: 1px solid #979797; }
+  border-top: 1px solid $theme-line-active;
+}
 
 footer .theme a:first-child {
-  margin-right: 1em; }
+  margin-right: 1em;
+}
 
 footer .theme a:last-child {
-  margin-left: 1em; }
+  margin-left: 1em;
+}
 
 footer a.question {
   font-family: Brandon_light, sans-serif;
   font-size: 14px;
-  color: #afafaf;
-  border-bottom: 1px solid #afafaf;
-  display: block;
-  height: 1.3em; }
+  color: $naming;
+  //text-decoration: underline !important;
 
-footer a.question:hover {
-  color: #ededed; }
+  border-bottom: 1px solid $naming;
+  display: block;
+  height: 1.3em;
+}
+
+footer a.question:hover{
+  color: $milk-reverse;
+}
+
+
 
 @media (max-width: 1280px) {
   .header-menu {
-    font-size: 10px; }
+    font-size: 10px;
+  }
   .news a {
-    font-size: 8px; } }
+    font-size: 8px;
+  }
+}
