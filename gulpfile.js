@@ -9,7 +9,8 @@ const sass = require('gulp-sass');
 gulp.task('connect', function () {
     connect.server({
         root: 'src',
-        livereload: true
+        livereload: true,
+        port: 8090
     })
 });
 
