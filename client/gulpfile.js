@@ -5,21 +5,20 @@ const livereload = require('gulp-livereload');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 
-
-gulp.task('connect', function () {
-    connect.server({
-        root: 'src',
-        livereload: true,
-        port: 8090
-    })
-});
-
 gulp.task('css', function () {
     gulp.src('src/styles/*.scss')
         .pipe(sass())
         .pipe(rename('style.css'))
         .pipe(gulp.dest('src'))
-        .pipe(connect.reload())
+    // .pipe(connect.reload())
+});
+
+gulp.task('connect', function () {
+    connect.server({
+        root: 'src',
+        livereload: true,
+        port: 3000
+    })
 });
 
 gulp.task('html', function () {
@@ -32,4 +31,5 @@ gulp.task('watch', function () {
     gulp.watch('src/*.html', ['html'])
 });
 
-gulp.task('default', ['connect','html' , 'css','watch']);
+// gulp.task('default', ['connect','html' , 'css','watch']);
+gulp.task('default', ['css']);

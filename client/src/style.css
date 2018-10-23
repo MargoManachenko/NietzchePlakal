@@ -46,12 +46,17 @@ ul {
   color: #b5b5b5; }
 
 .wrapper .sidebar-logo a.logo {
+  user-select: none;
+  cursor: pointer;
   font-family: Brandon_light, sans-serif;
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: 4px;
   margin: auto;
   color: #6d6d6d; }
+
+.wrapper .sidebar-logo a.logo::selection {
+  background-color: Transparent; }
 
 .sidebar-menu a {
   font-size: 10px; }
@@ -99,6 +104,9 @@ header {
   padding: 8vh 4.5vw 0;
   grid-gap: 22%; }
 
+.wrapper .header-menu a {
+  text-transform: uppercase; }
+
 .wrapper.dark .header-menu a {
   color: #ffffff; }
 
@@ -136,9 +144,10 @@ header {
 .wrapper.light .header-menu li.active:after {
   border-bottom: 1px solid #303030; }
 
-.news a {
+.news .news-item {
   font-size: 10px;
-  letter-spacing: 2.8px; }
+  letter-spacing: 2.8px;
+  cursor: pointer; }
 
 .news .date {
   display: block; }
@@ -154,7 +163,7 @@ header {
   color: #6d6d6d; }
 
 .news li {
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 1.2em; }
 
 .news li:nth-child(2) {
@@ -179,7 +188,8 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 8.5em; }
+  margin-left: 8.5em;
+  user-select: none; }
 
 .main.about-content {
   display: flex;
@@ -274,7 +284,6 @@ header {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  align-items: center;
   margin-bottom: 0.7em; }
 
 .main.music-content .song .song-cover {
@@ -293,7 +302,8 @@ footer {
 
 footer .lang a {
   color: #2f2f2f;
-  margin-right: 1em; }
+  margin-right: 1em;
+  cursor: pointer; }
 
 .wrapper.dark .lang a {
   color: #2f2f2f; }
@@ -320,7 +330,8 @@ footer .theme {
   font-size: 16px; }
 
 footer .theme a {
-  display: block; }
+  display: block;
+  cursor: pointer; }
 
 .wrapper.light footer .theme a:hover,
 .wrapper.light footer .theme a.active,

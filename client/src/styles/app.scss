@@ -83,12 +83,18 @@ ul {
 }
 
 .wrapper .sidebar-logo a.logo {
+  user-select: none;
+  cursor: pointer;
   font-family: Brandon_light, sans-serif;
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: 4px;
   margin: auto;
   color: $milk-oreo;
+}
+
+.wrapper .sidebar-logo a.logo::selection {
+  background-color: Transparent;
 }
 
 .sidebar-menu a {
@@ -149,6 +155,10 @@ header {
   grid-gap: 22%;
 }
 
+.wrapper .header-menu a {
+  text-transform: uppercase;
+}
+
 .wrapper.dark .header-menu a {
   color: $white;
 }
@@ -195,9 +205,10 @@ header {
   border-bottom: 1px solid $border-after-light;
 }
 
-.news a {
+.news .news-item {
   font-size: 10px;
   letter-spacing: 2.8px;
+  cursor: pointer;
 }
 
 .news .date {
@@ -218,7 +229,7 @@ header {
 }
 
 .news li {
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 1.2em;
 }
 
@@ -252,6 +263,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-left: 8.5em;
+  user-select: none;
 }
 
 .main.about-content {
@@ -365,7 +377,6 @@ header {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  align-items: center;
   margin-bottom: 0.7em;
 }
 
@@ -389,6 +400,7 @@ footer {
 footer .lang a {
   color: $black;
   margin-right: 1em;
+  cursor: pointer;
 }
 
 .wrapper.dark .lang a {
@@ -423,7 +435,7 @@ footer .theme {
 
 footer .theme a {
   display: block;
-
+  cursor: pointer;
 }
 
 .wrapper.light footer .theme a:hover,
@@ -506,7 +518,8 @@ footer a.question {
     margin-right: 36%;
   }
 }
-@media(max-width: 950px){
+
+@media(max-width: 950px) {
   .wrapper .main.main-content h1 {
     font-size: 68px;
   }
