@@ -27,24 +27,24 @@ class Header extends React.Component {
                     <li>
                         <Route path="/event/:eventId">
                             <div className="news-item">
-                                <span className="date">21 MAY</span>
-                                <span className="event">MUSIC DAY KHARKIV</span>
+                                <span className="date"><Translate id="base.news.news-item1.date">21 MAY</Translate></span>
+                                <span className="event"><Translate id="base.news.news-item1.event">MUSIC DAY KHARKIV</Translate></span>
                             </div>
                         </Route>
                     </li>
                     <li>
                         <Route path="/event/:eventId">
                             <div className="news-item">
-                                <span className="date">5 MAY </span>
-                                <span className="event">HILLEL KHARKIV</span>
+                                <span className="date"><Translate id="base.news.news-item2.date">5 MAY</Translate></span>
+                                <span className="event"><Translate id="base.news.news-item2.date">HILLEL KHARKIV</Translate></span>
                             </div>
                         </Route>
                     </li>
                     <li>
                         <Route path="/event/:eventId">
                             <div className="news-item">
-                                <span className="date">26 APRIL</span>
-                                <span className="event">BONGO BAR KHARKIV</span>
+                                <span className="date"><Translate id="base.news.news-item3.date">26 APRIL</Translate></span>
+                                <span className="event"><Translate id="base.news.news-item3.date">BONGO BAR KHARKIV</Translate></span>
                             </div>
                         </Route>
                     </li>

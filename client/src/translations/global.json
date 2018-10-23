@@ -31,9 +31,75 @@
         "видео",
         "відео"
       ]
+    },
+    "sidebar":{
+      "sidebar-menu":[
+        "menu",
+        "меню",
+        "меню"
+      ]
+    },
+    "footer":{
+      "theme-light":[
+        "light",
+        "светлая",
+        "світла"
+      ],
+      "theme-dark":[
+        "dark",
+        "тёмная",
+        "темна"
+      ],
+      "naming":[
+        "why did we choose this name?",
+        "почему мы выбрали такое название?",
+        "чому ми вибрали таку назву?"
+      ]
+    },
+    "news":{
+      "news-item1":{
+        "date":[
+          "21 may",
+          "21 мая",
+          "21 травня"
+        ],
+        "event":[
+          "music day kharkiv",
+          "день музыки в харькове",
+          "день музыки в харкові"
+        ]
+      },
+      "news-item2":{
+        "date":[
+          "5 may",
+          "5 мая",
+          "5 травня"
+        ],
+        "event":[
+          "hillel kharkiv",
+          "гиллель, харьков",
+          "гіллель, харків"
+        ]
+      },
+      "news-item3":{
+        "date":[
+          "26 april",
+          "26 апреля",
+          "26 квітня"
+        ],
+        "event":[
+          "bongo bar kharkiv",
+          "бонго бар, харьков",
+          "бонго бар, харків"
+        ]
+      }
     }
   },
+"content":{
+  "about":{
 
+  }
+},
   "about-headline":[
     "Our songs seem very simple, but the sense we put into the lyrics is strong.",
     "Наши песни кажутся очень простыми, но смысл, который мы вкладываем в лирику, очень силен.",
