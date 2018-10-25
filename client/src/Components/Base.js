@@ -9,8 +9,7 @@ class Base extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: '',
-            language: 'EN'
+            theme: ''
         };
 
         this.ChangeTheme = this.ChangeTheme.bind(this);
@@ -24,21 +23,6 @@ class Base extends React.Component {
             }
         );
     }
-
-    // componentDidMount(){
-    //   this.callApi()
-    //       .then(res => this.setState({response: res.express}))
-    //       .catch(err => console.log(err));
-    // }
-    //
-    // callApi = async () => {
-    //   const responce = await fetch('/api/hello');
-    //   const body = await responce.json();
-    //
-    //   if(responce.status !== 200) throw Error(body.message);
-    //
-    //   return body;
-    // };
 
     ChangeTheme(event){
         let newTheme = event.target.name;

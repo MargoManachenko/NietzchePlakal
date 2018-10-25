@@ -13,15 +13,16 @@ class Header extends React.Component {
     }
 
     render() {
+        const activeClass = (route) => { return window.location.pathname === route ? "active" : null }
         return (
             <header>
                 <ul className="header-menu">
-                    <li className="active"><Link to="/"><Translate id="base.menu.home">HOME</Translate></Link></li>
-                    <li><Link to="/about"><Translate id="base.menu.about">ABOUT</Translate></Link></li>
-                    <li><Link to="/contact"><Translate id="base.menu.contact">CONTACT</Translate></Link></li>
-                    <li><Link to="/gallery"><Translate id="base.menu.gallery">GALLERY</Translate></Link></li>
-                    <li><Link to="/music"><Translate id="base.menu.music">MUSIC</Translate></Link></li>
-                    <li><Link to="/video"><Translate id="base.menu.video">VIDEO</Translate></Link></li>
+                    <li className={activeClass("/")}><Link to="/"><Translate id="base.menu.home">HOME</Translate></Link></li>
+                    <li className={activeClass("/about")}><Link to="/about"><Translate id="base.menu.about">ABOUT</Translate></Link></li>
+                    <li className={activeClass("/contact")}><Link to="/contact"><Translate id="base.menu.contact">CONTACT</Translate></Link></li>
+                    <li className={activeClass("/gallery")}><Link to="/gallery"><Translate id="base.menu.gallery">GALLERY</Translate></Link></li>
+                    <li className={activeClass("/music")}><Link to="/music"><Translate id="base.menu.music">MUSIC</Translate></Link></li>
+                    <li className={activeClass("/video")}><Link to="/video"><Translate id="base.menu.video">VIDEO</Translate></Link></li>
                 </ul>
                 <ul className="news">
                     <li>

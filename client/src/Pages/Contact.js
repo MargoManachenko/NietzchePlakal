@@ -43,8 +43,6 @@ class Contact extends React.Component {
         let emailValid = !validationResult.email;
         let messageValid = !validationResult.message;
         let isError = false;
-        console.log(nameValid);
-
         if (!nameValid || !emailValid || !messageValid) {
             isError = true;
             this.setState({
