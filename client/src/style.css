@@ -239,6 +239,10 @@ header {
   background-color: #e2e2e2;
   outline: none; }
 
+.main.contact-content input.error,
+.main.contact-content input.error:hover {
+  border-bottom: solid 1px red; }
+
 .main.contact-content input,
 .main.contact-content input::placeholder {
   font-family: Brandon_light, sans-serif;
@@ -251,6 +255,10 @@ header {
 .main.contact-content .contact-form {
   padding-top: 2em; }
 
+.main.contact-content .contact-form .result {
+  font-size: 21px;
+  font-family: 'Brandon_light', sans-serif; }
+
 .main.contact-content button.send {
   width: 10.7em;
   height: 2.8em;
@@ -258,7 +266,8 @@ header {
   color: #ffffff;
   text-transform: uppercase;
   background-color: #e2e2e2;
-  border: solid 1px #000000; }
+  border: solid 1px #000000;
+  outline: none; }
 
 .main.video-content .video-block {
   display: grid;

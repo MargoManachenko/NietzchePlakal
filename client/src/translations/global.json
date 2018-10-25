@@ -1,108 +1,154 @@
 {
-  "base":{
-    "menu":{
-      "home":[
+  "base": {
+    "menu": {
+      "home": [
         "home",
         "домой",
         "додому"
       ],
-      "about":[
+      "about": [
         "about",
         "о нас",
         "про нас"
       ],
-      "contact":[
+      "contact": [
         "contact",
         "контакты",
         "контакти"
       ],
-      "gallery":[
+      "gallery": [
         "gallery",
         "галерея",
         "галерея"
       ],
-      "music":[
+      "music": [
         "music",
         "музыка",
         "музика"
       ],
-      "video":[
+      "video": [
         "video",
         "видео",
         "відео"
       ]
     },
-    "sidebar":{
-      "sidebar-menu":[
-        "menu",
-        "меню",
-        "меню"
-      ]
-    },
-    "footer":{
-      "theme-light":[
-        "light",
-        "светлая",
-        "світла"
-      ],
-      "theme-dark":[
-        "dark",
-        "тёмная",
-        "темна"
-      ],
-      "naming":[
-        "why did we choose this name?",
-        "почему мы выбрали такое название?",
-        "чому ми вибрали таку назву?"
-      ]
-    },
-    "news":{
-      "news-item1":{
-        "date":[
+    "news": {
+      "news-item1": {
+        "date": [
           "21 may",
           "21 мая",
           "21 травня"
         ],
-        "event":[
+        "event": [
           "music day kharkiv",
           "день музыки в харькове",
           "день музыки в харкові"
         ]
       },
-      "news-item2":{
-        "date":[
+      "news-item2": {
+        "date": [
           "5 may",
           "5 мая",
           "5 травня"
         ],
-        "event":[
+        "event": [
           "hillel kharkiv",
           "гиллель, харьков",
           "гіллель, харків"
         ]
       },
-      "news-item3":{
-        "date":[
+      "news-item3": {
+        "date": [
           "26 april",
           "26 апреля",
           "26 квітня"
         ],
-        "event":[
+        "event": [
           "bongo bar kharkiv",
           "бонго бар, харьков",
           "бонго бар, харків"
         ]
       }
+    },
+    "footer": {
+      "theme-light": [
+        "light",
+        "светлая",
+        "світла"
+      ],
+      "theme-dark": [
+        "dark",
+        "тёмная",
+        "темна"
+      ],
+      "naming": [
+        "why did we choose this name?",
+        "почему мы выбрали такое название?",
+        "чому ми вибрали таку назву?"
+      ]
+    },
+    "sidebar": {
+      "sidebar-menu": [
+        "menu",
+        "меню",
+        "меню"
+      ]
     }
   },
-"content":{
-  "about":{
-
+  "content": {
+    "about": {
+      "headline": [
+        "Our songs seem very simple, but the sense we put into the lyrics is strong.",
+        "Наши песни кажутся очень простыми, но смысл, который мы вкладываем в лирику, очень силен.",
+        "Наші пісні здаються дуже простими, але сенс, який ми вкладаємо в тексти пісень, є сильним."
+      ],
+      "content-p1": [
+        "Nietzsche Plakal is an indie-rock band formed in 2018 in Kharkiv, Ukraine. The band brings up existential issues of the young generation. Nietzsche Plakal often performs on the streets so that anyone can hear them. The band is going to get to your ears even if you are just shopping or walking with your dog.",
+        "Nietzsche Plakal - это инди-рок-группа, созданная в 2018 году в Харькове, Украина. Группа поднимает экзистенциальные проблемы молодого поколения. Nietzsche Plakal часто выступает на улицах, чтобы каждый мог их услышать. Группа собирается добраться до ваших ушей, даже если вы просто ходите по магазинам или гуляете со своей собакой.",
+        "Nietzsche Plakal - інді-рок-група, створена в 2018 році в Харкові, Україна. Група висвітлює екзистенційні проблеми молодого покоління. Nietzsche Plakal часто виступає на вулицях, щоб кожен міг їх почути. Група потрапить до ваших вух, навіть якщо ви просто ходите по магазинах або гуляєте зі своєю собакою."
+      ],
+      "content-p2": [
+        "Nietzsche described the superhuman as a supreme creature, superior to a man as much as a man surpasses a monkey. Nietzsche himself remained an ordinary person. So we sing and play about the daily routine of an ordinary human life, about an unattainable desire for something higher. Nietzsche Plakal (Plakal means cried in English) and we cry and laugh with him.",
+        "Ницше описал сверхчеловеческого как высшего существа, превосходящего человека так же, как человек превосходит обезьяну. Сам Ницше оставался обычным человеком. Поэтому мы поем и играем о повседневной жизни обычной человеческой жизни, о недостижимом желании чего-то большего. Nietzsche Plakal (Plakal означает плакать по-английски), и мы плачем и смеемся вместе с ним.",
+        "Ніцше назвав надлюдську людину вищою істотою, вищою за чоловіка, наскільки людина перевершує мавпу. Сам Ніцше залишався звичайною людиною. Отже, ми співаємо і граємо про щоденну поведінку звичайного людського життя, про нездоланне бажання щось вище. Nietzsche Plakal (Plakal означає плакати англійською мовою), і ми плачемо і сміємося з ним."
+      ]
+    },
+    "contact":{
+      "headline":[
+        "Contact us",
+        "Свяжитесь с нами",
+        "Зв'яжіться з нами"
+      ],
+      "booking":[
+        "Booking",
+        "Бронирование",
+        "Бронювання"
+      ],
+      "phone":[
+        "Phone",
+        "Телефон",
+        "Телефон"
+      ],
+      "name-placeholder":[
+        "Name",
+        "Имя",
+        "Ім'я"
+      ],
+      "message-placeholder":[
+        "Message",
+        "Сообщение",
+        "Повідомлення"
+      ],
+      "email-placeholder":[
+        "Email",
+        "Email",
+        "Email"
+      ],
+      "btn-send":[
+        "Send",
+        "Отправить",
+        "Відправити"
+      ]
+    }
   }
-},
-  "about-headline":[
-    "Our songs seem very simple, but the sense we put into the lyrics is strong.",
-    "Наши песни кажутся очень простыми, но смысл, который мы вкладываем в лирику, очень силен.",
-    "Наші пісні здаються дуже простими, але сенс, який ми вкладаємо в тексти пісень, є сильним."
-  ]
 }
