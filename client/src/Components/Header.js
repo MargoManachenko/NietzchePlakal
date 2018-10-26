@@ -13,7 +13,7 @@ class Header extends React.Component {
     }
 
     render() {
-        const activeClass = (route) => { return window.location.pathname === route ? "active" : null }
+        const activeClass = (route) => { return window.location.pathname === route ? "active" : null };
         return (
             <header>
                 <ul className="header-menu">
