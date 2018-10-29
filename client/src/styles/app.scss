@@ -65,7 +65,17 @@ ul {
 .wrapper.light .main.main-content h1 {
   color: $h1-color-light;
 }
-
+.wrapper .main.main-content .background{
+  position: absolute;
+  margin: -1% 0px 0% 4%;
+  height: 125%;
+}
+.wrapper.dark .main.main-content .background.light{
+  display: none;
+}
+.wrapper.light .main.main-content .background.dark{
+  display: none;
+}
 .wrapper h2 {
   font-family: Brandon_light, sans-serif;
   font-size: 12px;
@@ -123,6 +133,8 @@ ul {
   grid-auto-rows: 21.25vh 70vh 8.75vh;
 }
 
+//sidebar
+
 .sidebar-menu,
 .sidebar-logo {
   display: flex;
@@ -147,6 +159,23 @@ ul {
 .wrapper.light .sidebar-menu a:hover {
   color: $black;
 }
+.wrapper .sidebar .social-media{
+  display: grid;
+  justify-content: center;
+}
+.wrapper.dark .sidebar .social-media.light{
+  display: none;
+}
+.wrapper.light .sidebar .social-media.dark{
+  display: none;
+}
+.wrapper .sidebar .social-media .icons-block a img{
+  margin-right: 2em;
+}
+.wrapper .sidebar .social-media .icons-block a:last-child img{
+  margin-right: 0;
+}
+//header
 
 header {
   display: grid;
@@ -177,6 +206,7 @@ header {
 .header-menu {
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .header-menu li {
@@ -256,6 +286,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .main .logo-block {
@@ -263,6 +294,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-left: 8.5em;
+  z-index: 1;
   user-select: none;
 }
 
@@ -360,7 +392,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 0 2em;
+  grid-gap: 4em 2em;
   padding-top: 2.5em;
   color: $video-names;
   font-size: 14px;
@@ -371,7 +403,22 @@ header {
   background-size: cover;
   height: 100px;
 }
-
+.main.video-content .video{
+  position: relative;
+  padding-bottom: 55%;
+  height: 0;
+}
+.main.video-content .video iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.main.video-content .video p{
+  position: absolute;
+  top: 100%;
+}
 //.main.music-content .songs{
 .main.music-content .songs-center {
   display: flex;
@@ -402,6 +449,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-items: center;
+  z-index: 1;
 }
 
 footer .lang a {

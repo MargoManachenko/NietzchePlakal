@@ -1,4 +1,5 @@
 import React from 'react';
+import YoutubeEmbedVideo from "youtube-embed-video";
 import Base from '../Components/Base';
 
 const Video = () =>(
@@ -7,15 +8,15 @@ const Video = () =>(
             <h1>Video</h1>
             <div className="video-block">
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="ppUidARmZ6I" suggestions={false} />
                     <p>Bongo event bar 20.04.2018</p>
                 </div>
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="7uO_4SH9MIc" suggestions={false} />
                     <p>Live in Hillel 19.05.2018</p>
                 </div>
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="NdD_utmOhZg" suggestions={false} />
                     <p>KHATOB 11.05.2018</p>
                 </div>
                 <div className="video">
@@ -25,15 +26,15 @@ const Video = () =>(
 
                 </div>
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="7S3MCUNihpI" suggestions={false} />
                     <p>Bejt Dan 17.06.2018</p>
                 </div>
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="7S3MCUNihpI" suggestions={false} />
                     <p>Music Day Kharkiv 21.05.2018</p>
                 </div>
                 <div className="video">
-                    <div className="screen"/>
+                    <YoutubeEmbedVideo videoId="7S3MCUNihpI" suggestions={false} />
                     <p>Steklyashka street performance
                         28.06.2018</p>
                 </div>
