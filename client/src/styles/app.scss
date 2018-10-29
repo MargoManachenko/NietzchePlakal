@@ -25,6 +25,10 @@ $border-after-light: #303030;
 
 $video-names: #393939;
 
+*{
+  font-family: 'Brandon_bld', sans-serif !important;
+}
+
 body {
   margin: 0;
   font-family: 'Brandon_bld', sans-serif;
@@ -443,6 +447,10 @@ header {
 .main.music-content p {
   font-size: 18px;
   margin: 0;
+}
+.main.music-content .song .audio-player {
+  margin: 0;
+  background: transparent;
 }
 
 footer {

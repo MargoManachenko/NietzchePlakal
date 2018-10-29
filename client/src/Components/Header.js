@@ -37,7 +37,7 @@ class Header extends React.Component {
                         <Route path="/event/:eventId">
                             <div className="news-item">
                                 <span className="date"><Translate id="base.news.news-item2.date">5 MAY</Translate></span>
-                                <span className="event"><Translate id="base.news.news-item2.date">HILLEL KHARKIV</Translate></span>
+                                <span className="event"><Translate id="base.news.news-item2.event">HILLEL KHARKIV</Translate></span>
                             </div>
                         </Route>
                     </li>
@@ -45,7 +45,7 @@ class Header extends React.Component {
                         <Route path="/event/:eventId">
                             <div className="news-item">
                                 <span className="date"><Translate id="base.news.news-item3.date">26 APRIL</Translate></span>
-                                <span className="event"><Translate id="base.news.news-item3.date">BONGO BAR KHARKIV</Translate></span>
+                                <span className="event"><Translate id="base.news.news-item3.event">BONGO BAR KHARKIV</Translate></span>
                             </div>
                         </Route>
                     </li>
