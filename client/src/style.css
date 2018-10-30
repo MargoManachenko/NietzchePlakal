@@ -1,6 +1,3 @@
-* {
-  font-family: 'Brandon_bld', sans-serif !important; }
-
 body {
   margin: 0;
   font-family: 'Brandon_bld', sans-serif;
@@ -332,17 +329,23 @@ header {
   position: absolute;
   top: 100%; }
 
+.main.music-content {
+  padding: 2vh 4.5vw 5vh 4.5vw; }
+
 .main.music-content .songs-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
 
+.main.music-content .songs {
+  width: 55%; }
+
 .main.music-content .song {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 0.7em; }
+  margin-bottom: 1.75em; }
 
 .main.music-content .song .song-cover {
   width: 38px;
@@ -351,6 +354,7 @@ header {
 
 .main.music-content p {
   font-size: 18px;
+  letter-spacing: 1.5px;
   margin: 0; }
 
 .main.music-content .song .audio-player {
