@@ -1,0 +1,122 @@
+.audio-player {
+    background: white;
+    width: 50vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+.audio-player .track-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.audio-player .track-info .time {
+
+    display: flex;
+    font-family: Brandon_light;
+    letter-spacing: 0.9px;
+}
+
+.audio-player .track-info .time p {
+    font-size: 12px;
+}
+
+.audio-player .track-info .track-name {
+    margin-bottom: 0.25em;
+}
+
+.audio-player progress {
+    width: 100%;
+    cursor: pointer;
+}
+
+.audio-player .volume-controller {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 1.5em;
+}
+
+.audio-player .volume-controller .volumeIcon {
+    opacity: 0.7;
+    margin-bottom: -3.2em;
+}
+.audio-player .volume-controller .volumeIcon:hover{
+    opacity:1;
+}
+
+.audio-player .volume-controller .volumeRange {
+    width: 40px;
+    height: 2px;
+    outline: none;
+    appearance: none;
+    background-color: rgba(161, 161, 161, 0.3);
+    transform: rotate(270deg);
+}
+
+.audio-player .volume-controller .volumeRange::-webkit-slider-thumb {
+    appearance: none;
+    width: 9px;
+    height: 9px;
+    border: solid 2px #e2e2e2;
+    border-radius: 5px;
+    background-color: #b79f80;
+    cursor: pointer;
+}
+
+.cover {
+    height: 3.5em;
+    min-width: 3.5em;
+    margin-right: 3.3em;
+    cursor: pointer;
+    position: relative;
+}
+
+.album-image {
+    height: 100%;
+    width: 100%;
+}
+
+.player-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#play-btn {
+    background-image: url('../public/pause.svg');
+    background-size: cover;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 36%;
+    left: 40%;
+    margin: 0 auto;
+}
+
+#play-btn.pause {
+    background-image: url('../public/play.svg');
+}
+
+progress {
+    width: 90%;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(186, 17, 17, 0.15);
+    color: #b79f80;
+    height: 2px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: rgba(186, 17, 17, 0.15);
+    border-radius: 1px;
+    color: #b79f80;
+}
+
+progress::-webkit-progress-value {
+    background-color: #b79f80;
+}
+
