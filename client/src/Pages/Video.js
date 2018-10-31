@@ -19,12 +19,12 @@ const Video = () =>(
                     <YoutubeEmbedVideo videoId="NdD_utmOhZg" suggestions={false} />
                     <p>KHATOB 11.05.2018</p>
                 </div>
-                <div className="video">
+                {/*<div className="video">*/}
 
-                </div>
-                <div className="video">
+                {/*</div>*/}
+                {/*<div className="video">*/}
 
-                </div>
+                {/*</div>*/}
                 <div className="video">
                     <YoutubeEmbedVideo videoId="7S3MCUNihpI" suggestions={false} />
                     <p>Bejt Dan 17.06.2018</p>

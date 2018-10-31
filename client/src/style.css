@@ -180,9 +180,7 @@ header {
 .news .date {
   display: block; }
 
-.wrapper.dark .news .date {
-  color: #dedede; }
-
+.wrapper.dark .news .date,
 .wrapper.light .news .date {
   color: #b79f80; }
 
@@ -227,8 +225,13 @@ header {
   padding: 2vh calc(4.5vw + 37.5em) 5vh 4.5vw;
   font-family: Brandon_light, sans-serif;
   font-size: 14px;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.1px; }
+
+.wrapper.light .main.about-content {
   color: #000000; }
+
+.wrapper.dark .main.about-content {
+  color: #ebebeb; }
 
 .main.about-content h3 {
   font-family: Brandon_light, sans-serif;
@@ -251,14 +254,20 @@ header {
   height: 2em; }
 
 .main.contact-content .contacts span {
-  font-family: Brandon_light, sans-serif;
-  color: rgba(0, 0, 0, 0.72); }
+  font-family: Brandon_light, sans-serif; }
 
 .main.contact-content .contacts span.bold {
   display: inline-block;
   width: 4.8em;
-  font-family: Brandon_med, sans-serif;
+  font-family: Brandon_med, sans-serif; }
+
+.wrapper.light .main.contact-content .contacts span.bold,
+.wrapper.light .main.contact-content .contacts span {
   color: #000000; }
+
+.wrapper.dark .main.contact-content .contacts span.bold,
+.wrapper.dark .main.contact-content .contacts span {
+  color: #a1a1a1; }
 
 .main.contact-content input {
   width: 20.2em;
@@ -266,8 +275,13 @@ header {
   padding: 0.7em 0.5em 0.3em 0.5em;
   border: none;
   border-bottom: solid 1px rgba(151, 151, 151, 0.26);
-  background-color: #e2e2e2;
   outline: none; }
+
+.wrapper.dark .main.contact-content input {
+  background-color: #1d1d1d; }
+
+wrapper.light .main.contact-content input {
+  background-color: #e2e2e2; }
 
 .main.contact-content input.error,
 .main.contact-content input.error:hover {
@@ -276,7 +290,8 @@ header {
 .main.contact-content input,
 .main.contact-content input::placeholder {
   font-family: Brandon_light, sans-serif;
-  font-size: 18px; }
+  font-size: 18px;
+  color: #afafaf; }
 
 .main.contact-content input:focus,
 .main.contact-content input:hover {
@@ -295,9 +310,14 @@ header {
   font-family: Brandon_med, sans-serif;
   color: #ffffff;
   text-transform: uppercase;
-  background-color: #e2e2e2;
   border: solid 1px #000000;
   outline: none; }
+
+.wrapper.dark .main.contact-content button.send {
+  background-color: #1d1d1d; }
+
+.wrapper.light .main.contact-content button.send {
+  background-color: #e2e2e2; }
 
 .main.video-content .video-block {
   display: grid;
@@ -456,8 +476,8 @@ header {
   position: absolute;
   width: 11px;
   height: 11px;
-  top: 38%;
-  left: 45%;
+  top: 43%;
+  left: 44%;
   margin: 0 auto;
   opacity: 0; }
 
@@ -482,15 +502,18 @@ header {
   background-color: rgba(183, 159, 128, 0.25); }
 
 .wrapper.light .main.music-content .audio-player .player-controls progress[value] {
-  background-color: rgba(186, 17, 17, 0.15); }
+  background-color: #b79f80;
+  opacity: 0.25; }
 
 .main.music-content .audio-player .player-controls progress[value]::-webkit-progress-bar {
-  background-color: rgba(186, 17, 17, 0.15);
+  background-color: rgba(183, 159, 128, 0.25);
   border-radius: 1px;
   color: #b79f80; }
 
 .main.music-content .audio-player .player-controls progress::-webkit-progress-value {
-  background-color: #b79f80; }
+  background-color: #b79f80;
+  box-shadow: 0 0 6px 0 rgba(194, 194, 194, 0.5), 0 0 4px 0 #b79f80;
+  opacity: 1 !important; }
 
 footer {
   display: grid;
