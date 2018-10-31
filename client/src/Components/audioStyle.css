@@ -2,7 +2,7 @@
     background: white;
     width: 50vw;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .audio-player .track-info {
@@ -11,7 +11,6 @@
 }
 
 .audio-player .track-info .time {
-
     display: flex;
     font-family: Brandon_light;
     letter-spacing: 0.9px;
@@ -64,59 +63,67 @@
     cursor: pointer;
 }
 
-.cover {
-    height: 3.5em;
-    min-width: 3.5em;
-    margin-right: 3.3em;
+.audio-player .cover {
+    height: 7em;
+    min-width: 7em;
+    margin-right: 1.3em;
     cursor: pointer;
     position: relative;
 }
-
-.album-image {
+.audio-player .cover:hover #play-btn{
+    opacity: 1;
+}
+.audio-player .album-image {
     height: 100%;
     width: 100%;
 }
 
-.player-controls {
+.audio-player .player-controls {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-#play-btn {
-    background-image: url('../public/pause.svg');
+.audio-player #play-btn {
+    background-image: url('../public/play.svg');
     background-size: cover;
     position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 36%;
-    left: 40%;
+    width: 11px;
+    height: 11px;
+    top: 38%;
+    left: 45%;
     margin: 0 auto;
+    opacity: 0;
+
+}
+.audio-player #play-btn.play{
+    -webkit-transition: opacity 600ms, visibility 600ms;
+    transition: opacity 500ms, visibility 500ms;
+}
+.audio-player #play-btn.pause {
+    opacity: 1;
+    background-image: url('../public/pause.svg');
 }
 
-#play-btn.pause {
-    background-image: url('../public/play.svg');
-}
-
-progress {
+.audio-player .player-controls progress {
     width: 90%;
 }
 
-progress[value] {
+.audio-player .player-controls progress[value] {
     -webkit-appearance: none;
     appearance: none;
     background-color: rgba(186, 17, 17, 0.15);
     color: #b79f80;
-    height: 2px;
+    height: 1px;
 }
 
-progress[value]::-webkit-progress-bar {
+.audio-player .player-controls progress[value]::-webkit-progress-bar {
     background-color: rgba(186, 17, 17, 0.15);
     border-radius: 1px;
     color: #b79f80;
 }
 
-progress::-webkit-progress-value {
+.audio-player .player-controls progress::-webkit-progress-value {
     background-color: #b79f80;
 }
 

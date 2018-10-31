@@ -1,10 +1,6 @@
 import React from 'react';
-import style from './audioStyle.css';
 import volumeIcon from '../public/volume.svg';
 import volumeMuteIcon from '../public/volume-mute.svg';
-import cover1x from '../public/cover.png'
-import cover2x from '../public/cover@2x.png'
-import cover3x from '../public/cover@3x.png'
 
 class AudioTrack extends React.Component {
 
@@ -26,7 +22,11 @@ class AudioTrack extends React.Component {
             mute: false,
             showProgressbar: false,
             showVolumeController: false,
-            trackName: "Venom"
+            trackName: props.trackName,
+            cover1x: props.cover1x,
+            cover2x: props.cover2x,
+            cover3x: props.cover3x,
+            number: props.number
         };
 
         this.calculateCurrentValue = this.calculateCurrentValue.bind(this);
@@ -156,39 +156,43 @@ class AudioTrack extends React.Component {
 
 
         return (
-            <div className="audio-player">
-                <div className="cover" onClick={this.togglePlay}>
-                    <img src={cover1x} srcSet={`${cover2x} 2x, ${cover3x} 3x`}
-                         className="album-image"/>
-                    <div id="play-btn" className={this.state.play ? 'play' : 'pause'}/>
-                </div>
-
-                <div className="audio-wrapper">
-                    <audio ref={this.playerRef} onTimeUpdate={this.initProgressBar}>
-                        <source src="http://www.lukeduncan.me/oslo.mp3" type="audio/mp3"/>
-                    </audio>
-                </div>
-                <div className="player-controls">
-                    <div className="track-info">
-                        <p className="track-name">1. {this.state.trackName}</p>
-                        <div className="time">
-                            <p className="left-time">{this.state.timeLeft}</p>
-                            <p className="total-time"
-                               style={this.state.timeLeft === "" ? showTotalTime : hideTotalTime}>{this.state.totalTime}</p>
-                        </div>
+            <div className="song">
+                <div className="audio-player">
+                    <div className="cover" onClick={this.togglePlay}>
+                        <img src={this.state.cover1x} srcSet={`${this.state.cover2x} 2x, ${this.state.cover3x} 3x`}
+                             className="album-image"/>
+                        <div id="play-btn" className={this.state.play ? 'pause' : 'play'}/>
                     </div>
 
-                    <progress ref={this.seekRef} value="0" max="1"
-                              style={this.state.showProgressbar ? activeControllerStyle : inactiveControllerStyle}/>
+                    <div className="audio-wrapper">
+                        <audio ref={this.playerRef} onTimeUpdate={this.initProgressBar}>
+                            <source src="http://www.lukeduncan.me/oslo.mp3" type="audio/mp3"/>
+                        </audio>
+                    </div>
+                    <div className="player-controls">
+                        <div className="track-info">
+                            <p className="track-name">{this.props.number}{this.props.trackName}</p>
+                            <div className="time">
+                                <p className="left-time">{this.state.timeLeft}</p>
+                                <p className="total-time"
+                                   style={this.state.timeLeft === "" ? showTotalTime : hideTotalTime}>{this.state.totalTime}</p>
+                            </div>
+                        </div>
 
-                </div>
-                <div className="volume-controller" style={this.state.showVolumeController ? activeControllerStyle : inactiveControllerStyle}>
-                    <img src={this.state.mute ? volumeMuteIcon : volumeIcon} alt="" className="volumeIcon"
-                         onClick={this.changeMute}/>
-                    <input type="range" min="0" max="10" value={this.state.volume} onChange={this.volumeChange}
-                           className="volumeRange"/>
+                        <progress ref={this.seekRef} value="0" max="1"
+                                  style={this.state.showProgressbar ? activeControllerStyle : inactiveControllerStyle}/>
+
+                    </div>
+                    <div className="volume-controller"
+                         style={this.state.showVolumeController ? activeControllerStyle : inactiveControllerStyle}>
+                        <img src={this.state.mute ? volumeMuteIcon : volumeIcon} alt="" className="volumeIcon"
+                             onClick={this.changeMute}/>
+                        <input type="range" min="0" max="10" value={this.state.volume} onChange={this.volumeChange}
+                               className="volumeRange"/>
+                    </div>
                 </div>
             </div>
+
         )
     }
 
