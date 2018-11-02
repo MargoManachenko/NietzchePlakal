@@ -2,11 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Translate} from 'react-localize-redux'
 
+import darkBurger from '../public/darkBurger.svg';
 import darkFacebookIcon from '../public/darkFacebook.svg';
 import darkYouTubeIcon from '../public/darkYouTube.svg';
 import darkTelegramIcon from '../public/darkTelegram.svg';
 import darkInstagram from '../public/darkInstagram.svg';
 
+import lightBurger from '../public/lightBurger.svg';
 import lightFacebookIcon from '../public/lightFacebook.svg';
 import lightYouTubeIcon from '../public/lightYouTube.svg';
 import lightTelegramIcon from '../public/lightTelegram.svg';
@@ -19,6 +21,8 @@ const Sidebar = () => (
         </div>
         <div className="sidebar-menu">
             <Link to="/" className="menu"><Translate id="base.sidebar.sidebar-menu">MENU</Translate></Link>
+            <img src={lightBurger} className="lightBurger" alt=""/>
+            <img src={darkBurger} className="darkBurger" alt=""/>
         </div>
         <div className="social-media dark">
             <div className="icons-block">

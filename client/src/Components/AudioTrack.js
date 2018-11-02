@@ -1,7 +1,6 @@
 import React from 'react';
 import volumeIcon from '../public/volume.svg';
 import volumeMuteIcon from '../public/volume-mute.svg';
-import style from "./audioStyle.css";
 
 class AudioTrack extends React.Component {
 
