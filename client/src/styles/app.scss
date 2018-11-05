@@ -31,7 +31,6 @@ $video-names: #393939;
 
 body {
   margin: 0;
-  font-family: 'Brandon_bld', sans-serif;
   font-size: 12px;
   font-weight: 500;
 }
@@ -42,11 +41,21 @@ ul {
   padding: 0;
 }
 
-.wrapper.preloading{
+.wrapper.en {
+  font-family: Brandon_bld, sans-serif;
+}
+
+.wrapper.ru,
+.wrapper.ua {
+  font-family: MontserratBold, sans-serif;
+}
+
+.wrapper.preloading {
   height: 100vh;
   background-color: $sidebar-dark;
 }
-.wrapper .preloader{
+
+.wrapper .preloader {
 
   position: absolute;
   top: calc(50% - 5em);
@@ -98,11 +107,19 @@ ul {
 }
 
 .wrapper h2 {
-  font-family: Brandon_light, sans-serif;
   font-size: 12px;
   line-height: 1.6;
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
   margin: auto;
+}
+
+.wrapper.en h2 {
+  font-family: Brandon_light, sans-serif;
+}
+
+.wrapper.ru h2,
+.wrapper.ua h2 {
+  font-family: MontserratExtraLight, sans-serif;
 }
 
 .wrapper .main h2 {
@@ -128,8 +145,20 @@ ul {
   background-color: Transparent;
 }
 
+.wrapper.en .sidebar-menu a {
+  font-family: Brandon_med, sans-serif;
+  margin-right: 2em;
+}
+
+.wrapper.ru .sidebar-menu a,
+.wrapper.ua .sidebar-menu a {
+  font-family: MontserratSemiBold, sans-serif;
+  margin-right: 1em;
+}
+
 .sidebar-menu a {
   font-size: 10px;
+  letter-spacing: 2.8px;
 }
 
 .wrapper.dark .sidebar {
@@ -177,11 +206,6 @@ ul {
 
 .wrapper.light .sidebar-menu img.darkBurger {
   display: none;
-}
-
-.sidebar-menu a {
-  letter-spacing: 0.5em;
-  margin-right: 2em;
 }
 
 .wrapper.dark .sidebar-menu a,
@@ -241,6 +265,7 @@ header {
 }
 
 .wrapper .header-menu a {
+  letter-spacing: 0.9px;
   text-transform: uppercase;
 }
 
@@ -350,14 +375,22 @@ header {
   user-select: none;
 }
 
+.wrapper.en .main.about-content {
+  font-family: Brandon_light, sans-serif;
+}
+
+.wrapper.ru .main.about-content,
+.wrapper.ua .main.about-content {
+  font-family: MontserratLight, sans-serif;
+}
+
 .main.about-content {
   display: flex;
   align-items: center;
-  padding: 2vh calc(4.5vw + 37.5em) 5vh 4.5vw;
-  font-family: Brandon_light, sans-serif;
+  padding: 2vh calc(4.5vw + 37.5em) 30vh 4.5vw;
+  line-height: 1.5em;
   font-size: 14px;
   letter-spacing: 1.1px;
-
 }
 
 .wrapper.light .main.about-content {
@@ -368,37 +401,84 @@ header {
   color: $sidebar-light;
 }
 
-.main.about-content h3 {
+.wrapper.en .main.about-content h3 {
   font-family: Brandon_light, sans-serif;
+}
+
+.wrapper.ru .main.about-content h3,
+.wrapper.ua .main.about-content h3 {
+  font-family: Brandon_light, sans-serif;
+}
+
+.main.about-content h3 {
   color: $taupe;
   font-weight: normal;
+}
+
+.wrapper.en .main.contact-content h1,
+.wrapper.en.main.video-content h1,
+.wrapper.en.main.music-content h1 {
+  font-family: Brandon_bld, sans-serif;
+}
+
+.wrapper.ru .main.contact-content h1,
+.wrapper.ru.main.video-content h1,
+.wrapper.ru.main.music-content h1,
+.wrapper.ua .main.contact-content h1,
+.wrapper.ua.main.video-content h1,
+.wrapper.ua.main.music-content h1 {
+  font-family: MontserratBold, sans-serif;
 }
 
 .main.contact-content h1,
 .main.video-content h1,
 .main.music-content h1 {
-  font-family: Brandon_bld, sans-serif;
   font-size: 50px;
   color: $white;
   margin: 0;
 }
 
 .main.contact-content .contacts {
+  display: flex;
+  align-items: center;
   padding-top: 2.5em;
-  font-size: 18px;
 }
 
 .main.contact-content .contacts .contact-item {
-  height: 2em;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.main.contact-content .contacts .contact-item:first-child {
+  margin-right: 1.5em;
+}
+
+.main.contact-content .contacts .contact-item:last-child span:last-child {
+  font-size: 14px;
 }
 
 .main.contact-content .contacts span {
   font-family: Brandon_light, sans-serif;
 }
 
+.main.contact-content .contacts .contact-item span:first-child {
+  margin-bottom: 0.7em;
+}
+
+.wrapper.en .main.contact-content .contacts span.bold {
+  font-size: 18px;
+  font-family: Brandon_med, sans-serif;
+}
+
+.wrapper.ru .main.contact-content .contacts span.bold,
+.wrapper.ua .main.contact-content .contacts span.bold {
+  font-size: 15px;
+  font-family: MontserratMedium, sans-serif;
+}
+
 .main.contact-content .contacts span.bold {
   display: inline-block;
-  width: 4.8em;
   font-family: Brandon_med, sans-serif;
 }
 
@@ -456,12 +536,23 @@ header {
   font-family: 'Brandon_light', sans-serif;
 }
 
-.main.contact-content button.send {
+.wrapper.en .main.contact-content button.send {
   width: 10.7em;
-  height: 2.8em;
   font-family: Brandon_med, sans-serif;
+}
+
+.wrapper.ru .main.contact-content button.send,
+.wrapper.ua .main.contact-content button.send {
+  width: 12.7em;
+  font-size: 14px;
+  font-family: MontserratMedium, sans-serif;
+}
+
+.main.contact-content button.send {
+  height: 2.8em;
   color: $white;
   text-transform: uppercase;
+  letter-spacing: 4.3px;
   border: solid 1px $theme-line-dark;
   outline: none;
 }
@@ -583,6 +674,15 @@ header {
   font-size: 12px;
 }
 
+.wrapper.en .main.music-content .audio-player .track-info .track-name {
+  font-family: Brandon_med, sans-serif;
+}
+
+.wrapper.ru .main.music-content .audio-player .track-info .track-name,
+.wrapper.ua .main.music-content .audio-player .track-info .track-name {
+  font-family: MontserratMedium, sans-serif;
+}
+
 .main.music-content .audio-player .track-info .track-name {
   margin-bottom: 0.25em;
 }
@@ -601,7 +701,7 @@ header {
 
 .main.music-content .audio-player .volume-controller .volumeIcon {
   opacity: 0.7;
-  margin-bottom: -3.2em;
+  margin-bottom: -4.5em;
 }
 
 .main.music-content .audio-player .volume-controller .volumeIcon:hover {
@@ -750,11 +850,19 @@ footer .lang a:last-child {
   color: $black;
 }
 
+.wrapper.en footer .theme {
+  font-family: Brandon_light, sans-serif;
+}
+
+.wrapper.ru footer .theme,
+.wrapper.ua footer .theme {
+  font-family: MontserratExtraLight, sans-serif;
+}
+
 footer .theme {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  font-family: Brandon_light, sans-serif;
   font-size: 16px;
 }
 
@@ -798,9 +906,18 @@ footer .theme a:last-child {
   margin-left: 1em;
 }
 
-footer a.question {
+.wrapper.en footer a.question {
   font-family: Brandon_light, sans-serif;
   font-size: 14px;
+}
+
+.wrapper.ru footer a.question,
+.wrapper.ua footer a.question {
+  font-family: MontserratMedium, sans-serif;
+  font-size: 12px;
+}
+
+footer a.question {
   display: block;
   height: 1.3em;
 }
@@ -817,6 +934,20 @@ footer a.question {
 
 .wrapper.light footer a.question:hover {
   color: $black;
+}
+
+@media (max-width: 1670px) {
+  .header-menu li:first-child {
+    margin-right: 38%;
+  }
+  .main.about-content {
+    padding: 2vh calc(4.5vw + 25.5em) 30vh 4.5vw;
+  }
+
+  .wrapper.ru .header-menu li:first-child,
+  .wrapper.ua .header-menu li:first-child {
+    margin-right: 21%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -836,11 +967,25 @@ footer a.question {
   footer .theme {
     font-size: 14px;
   }
-  footer a.question {
+  .wrapper.en footer a.question,
+  .main.about-content
+  {
     font-size: 12px;
   }
+
+  .main.about-content {
+    padding: 2vh calc(4.5vw + 18.5em) 30vh 4.5vw;
+  }
+  .wrapper.ru .header-menu li:first-child,
+  .wrapper.ua .header-menu li:first-child {
+    margin-right: 8%;
+  }
+  .wrapper.ru footer a.question,
+  .wrapper.ua footer a.question {
+    font-size: 10px;
+  }
   .header-menu li:first-child {
-    margin-right: 36%;
+    margin-right: 28%;
   }
   .wrapper .main.main-content .background {
     height: 99%;

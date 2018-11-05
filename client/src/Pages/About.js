@@ -1,5 +1,5 @@
 import React from 'react';
-import {Translate} from 'react-localize-redux';
+import {Translate, withLocalize} from 'react-localize-redux';
 import Base from '../Components/Base';
 
 class About extends React.Component{
@@ -25,4 +25,4 @@ class About extends React.Component{
     };
 }
 
-export default About;
+export default withLocalize(About);

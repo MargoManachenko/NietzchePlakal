@@ -1,4 +1,5 @@
 import React from 'react';
+import {Translate, withLocalize} from 'react-localize-redux';
 import volumeIcon from '../public/volume.svg';
 import volumeMuteIcon from '../public/volume-mute.svg';
 
@@ -21,7 +22,6 @@ class AudioTrack extends React.Component {
             play: false,
             mute: false,
             showProgressbar: false,
-            showVolumeController: false,
             trackName: props.trackName,
             cover1x: props.cover1x,
             cover2x: props.cover2x,
@@ -32,6 +32,7 @@ class AudioTrack extends React.Component {
         this.calculateCurrentValue = this.calculateCurrentValue.bind(this);
         this.initProgressBar = this.initProgressBar.bind(this);
         this.togglePlay = this.togglePlay.bind(this);
+        this.turnOff = this.turnOff.bind(this);
         this.volumeChange = this.volumeChange.bind(this);
         this.changeMute = this.changeMute.bind(this);
         this.seek = this.seek.bind(this);
@@ -75,7 +76,6 @@ class AudioTrack extends React.Component {
 
         this.setState({
             showProgressbar: true,
-            showVolumeController: true,
             timeLeft: timeLeft
         });
 
@@ -104,12 +104,24 @@ class AudioTrack extends React.Component {
     togglePlay() {
         if (this.state.play) {
             this.state.player.pause();
-            this.setState({play: false})
+            this.setState({
+                play: false
+            })
 
         } else {
             this.state.player.play();
-            this.setState({play: true})
+            this.setState({
+                play: true
+            });
+            this.props.togglePlaying();
         }
+    }
+
+    turnOff(){
+        this.state.player.pause();
+        this.setState({
+            play: false
+        })
     }
 
     volumeChange(e) {
@@ -151,6 +163,9 @@ class AudioTrack extends React.Component {
         const activeControllerStyle = {visibility: "visible"};
         const inactiveControllerStyle = {visibility: "hidden"};
 
+        const activeVolumeController = {visibility: "visible"};
+        const inactiveVolumeController = {visibility: "hidden"};
+
         const showTotalTime = {display: "inline"};
         const hideTotalTime = {display: "none"};
 
@@ -171,7 +186,9 @@ class AudioTrack extends React.Component {
                     </div>
                     <div className="player-controls">
                         <div className="track-info">
-                            <p className="track-name">{this.props.number}{this.props.trackName}</p>
+                            <p className="track-name">{this.props.number} <Translate
+                                id={this.props.idTranslate}> {this.props.trackName}</Translate>
+                            </p>
                             <div className="time">
                                 <p className="left-time">{this.state.timeLeft}</p>
                                 <p className="total-time"
@@ -184,7 +201,7 @@ class AudioTrack extends React.Component {
 
                     </div>
                     <div className="volume-controller"
-                         style={this.state.showVolumeController ? activeControllerStyle : inactiveControllerStyle}>
+                         style={this.state.play ? activeVolumeController : inactiveVolumeController}>
                         <img src={this.state.mute ? volumeMuteIcon : volumeIcon} alt="" className="volumeIcon"
                              onClick={this.changeMute}/>
                         <input type="range" min="0" max="10" value={this.state.volume} onChange={this.volumeChange}
@@ -198,5 +215,5 @@ class AudioTrack extends React.Component {
 
 }
 
-export default AudioTrack;
+export default withLocalize(AudioTrack);
 

@@ -32,13 +32,25 @@ import id8cover1x from '../public/id8cover.png'
 import id8cover2x from '../public/id8cover@2x.png'
 import id8cover3x from '../public/id8cover@3x.png'
 
-
 class AudioTracksBox extends React.Component {
 
     constructor(props) {
         super(props);
 
+        this.state = {
+            playing: false
+        };
 
+        this.child = React.createRef();
+
+        this.togglePlaying = this.togglePlaying.bind(this);
+    }
+
+    togglePlaying() {
+        this.state = {
+            playing: true
+        };
+        console.log(this.child.current);
     }
 
     render() {
@@ -48,71 +60,80 @@ class AudioTracksBox extends React.Component {
                 trackName: "Venom",
                 cover1x: id1cover1x,
                 cover2x: id1cover2x,
-                cover3x: id1cover3x
+                cover3x: id1cover3x,
+                idTranslate: "content.music.song-1"
             },
             {
                 id: 2,
                 trackName: "Violet wood",
                 cover1x: id2cover1x,
                 cover2x: id2cover2x,
-                cover3x: id2cover3x
+                cover3x: id2cover3x,
+                idTranslate: "content.music.song-2"
             },
             {
                 id: 3,
                 trackName: "Money",
                 cover1x: id3cover1x,
                 cover2x: id3cover2x,
-                cover3x: id3cover3x
+                cover3x: id3cover3x,
+                idTranslate: "content.music.song-3"
             },
             {
                 id: 4,
                 trackName: "Get out",
                 cover1x: id4cover1x,
                 cover2x: id4cover2x,
-                cover3x: id4cover3x
+                cover3x: id4cover3x,
+                idTranslate: "content.music.song-4"
             },
             {
                 id: 5,
                 trackName: "Money",
                 cover1x: id5cover1x,
                 cover2x: id5cover2x,
-                cover3x: id5cover3x
+                cover3x: id5cover3x,
+                idTranslate: "content.music.song-5"
             },
             {
                 id: 6,
                 trackName: "Weekdays",
                 cover1x: id6cover1x,
                 cover2x: id6cover2x,
-                cover3x: id6cover3x
+                cover3x: id6cover3x,
+                idTranslate: "content.music.song-6"
             },
             {
                 id: 7,
                 trackName: "Emerald eyes",
                 cover1x: id7cover1x,
                 cover2x: id7cover2x,
-                cover3x: id7cover3x
+                cover3x: id7cover3x,
+                idTranslate: "content.music.song-7"
             },
             {
                 id: 8,
                 trackName: "Sh*t",
                 cover1x: id8cover1x,
                 cover2x: id8cover2x,
-                cover3x: id8cover3x
+                cover3x: id8cover3x,
+                idTranslate: "content.music.song-8"
             }
         ];
 
-
         return (
             <div className="songs">
-
                 {playlist.map((track) => (
                     <AudioTrack
                         number={track.id + ". "}
+                        idTranslate={track.idTranslate}
                         trackName={track.trackName}
                         cover1x={track.cover1x}
                         cover2x={track.cover2x}
                         cover3x={track.cover3x}
                         key={track.id}
+                        ref="child"
+                        togglePlaying={this.togglePlaying}
                     />
                 ))}
             </div>

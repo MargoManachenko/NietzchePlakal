@@ -86,12 +86,14 @@ class Contact extends React.Component {
                     <div className="contacts">
                         <div className="contact-item">
                             <span className="bold"><Translate id="content.contact.booking">Bookings:</Translate></span>
-                            <span>plakalnietzsche@gmail.com</span>
+                            <span className="bold"><Translate id="content.contact.phone">Phone:</Translate></span>
+
                         </div>
                         <div className="contact-item">
-                            <span className="bold"><Translate id="content.contact.phone">Phone:</Translate></span>
+                            <span>plakalnietzsche@gmail.com</span>
                             <span>(+38) 099 522 03 46</span>
                         </div>
+
                     </div>
                     <form onSubmit={this.sendForm} className="contact-form">
                         <input type="text" placeholder="Name" name="name" autoComplete="off"

@@ -1,11 +1,10 @@
 import React from 'react';
+import {withLocalize} from 'react-localize-redux';
 import Header from '../Components/Header';
 import Sidebar from '../Components/Sidebar';
 import Footer from '../Components/Footer';
 import logoAnimated from '../public/logo-animation.gif.mp4';
 import '../style.css';
-
-const path = process.env.PUBLIC_URL;
 
 class Base extends React.Component {
 
@@ -13,23 +12,28 @@ class Base extends React.Component {
         super(props);
         this.state = {
             theme: '',
-            loading: true,
+            lang: '',
+            loading: true
         };
 
         this.preloaderRef = React.createRef();
         this.ChangeTheme = this.ChangeTheme.bind(this);
+        this.ChangeLang = this.ChangeLang.bind(this);
     };
 
     componentDidMount() {
-
         let LocalStorageTheme = localStorage.getItem('theme');
         let theme = LocalStorageTheme === null ? 'light' : LocalStorageTheme;
+
+        let langFromWindow  = window.lang;
+        let lang = langFromWindow === undefined  ? 'en' : langFromWindow;
 
         let loadingFromWindow = window.loading;
         let loading = loadingFromWindow === undefined ? true : loadingFromWindow;
 
         this.setState({
                 theme: theme,
+                lang: lang,
                 loading: loading
             }, () => {
                 if (this.state.loading === true) {
@@ -40,24 +44,27 @@ class Base extends React.Component {
 
         this.preloaderRef.current.playbackRate = 3.0;
         setTimeout(() => this.setState({loading: false}), 3000);
+    }
 
+    ChangeLang(langCode) {
+        console.log(langCode);
+        window.lang = langCode;
+        this.setState({
+            lang: langCode
+        })
     }
 
     ChangeTheme(event) {
         let newTheme = event.target.name;
         if (newTheme !== this.state.theme) {
             this.setState({
-                theme: newTheme,
-                loading: true
+                theme: newTheme
             });
             localStorage.setItem('theme', newTheme);
-
-            setTimeout(() => this.setState({loading: false}), 9000);
         }
     }
 
     render() {
-
         if (this.state.loading === true) {
             return (<div className="wrapper preloading">
                 <video className="preloader" ref={this.preloaderRef} muted  autoPlay>
@@ -66,13 +73,14 @@ class Base extends React.Component {
             </div>)
         }
         return (
-            <div className={"wrapper " + this.state.theme}>
+            <div className={"wrapper " + this.state.theme + " " + this.state.lang}>
                 <Sidebar/>
                 <div className="content">
                     <Header/>
                     {this.props.children}
                     <Footer
-                        onClick={this.ChangeTheme}
+                        ChangeTheme={this.ChangeTheme}
+                        ChangeLang={this.ChangeLang}
                         currentTheme={this.state.theme}
                     />
                 </div>
@@ -81,4 +89,4 @@ class Base extends React.Component {
     };
 }
 
-export default Base;
+export default withLocalize(Base);
