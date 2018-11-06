@@ -52,16 +52,12 @@ ul {
 
 .wrapper.preloading {
   height: 100vh;
+  grid-template-columns: 100%;
   background-color: $sidebar-dark;
 }
 
-.wrapper .preloader {
-
-  position: absolute;
-  top: calc(50% - 5em);
-  left: calc(50% - 15em);
-  z-index: 5;
-  //border: 1px solid red;
+.wrapper img.preloader {
+  margin: auto;
 }
 
 .wrapper {
@@ -521,10 +517,16 @@ header {
   color: $naming;
 }
 
-//find another way to do this
-.main.contact-content input:focus,
+.main.contact-content input:focus {
+
+  box-shadow: 0 4px 4px rgba(194, 194, 194, 0.87);
+
+  //box-shadow: 0 0 6px 0 rgba(194, 194, 194, 0.87);
+  border-bottom: solid 1px $sidebar-light;
+}
+
 .main.contact-content input:hover {
-  border-bottom: solid 1px $theme-line-dark;
+  border-bottom: solid 1px $theme-line-active-dark;
 }
 
 .main.contact-content .contact-form {
@@ -555,6 +557,11 @@ header {
   letter-spacing: 4.3px;
   border: solid 1px $theme-line-dark;
   outline: none;
+}
+
+.wrapper.dark .main.contact-content button.send:hover {
+  background-color: $white;
+  color: $content-dark;
 }
 
 .wrapper.dark .main.contact-content button.send {
@@ -612,7 +619,40 @@ header {
 }
 
 .main.music-content .songs {
+  overflow-x: auto;
   width: 60%;
+}
+
+.main.music-content .songs::-webkit-scrollbar {
+  width: 12px;
+}
+
+.main.music-content .songs::-webkit-scrollbar-track {
+  //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  //border-radius: 10px;
+}
+
+//div::-webkit-scrollbar-thumb {
+//  border-radius: 10px;
+//  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+//}
+
+.main.music-content .songs::-webkit-scrollbar-thumb {
+  appearance: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 5px;
+  background-color: $taupe;
+  cursor: pointer;
+}
+
+.wrapper.light .main.music-content .songs::-webkit-scrollbar-thumb {
+  border: solid 2px $content-light;
+
+}
+
+.wrapper.dark .main.music-content .songs::-webkit-scrollbar-thumb {
+  border: solid 2px $content-dark;
 }
 
 .main.music-content .song {
@@ -968,8 +1008,7 @@ footer a.question {
     font-size: 14px;
   }
   .wrapper.en footer a.question,
-  .main.about-content
-  {
+  .main.about-content {
     font-size: 12px;
   }
 

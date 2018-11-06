@@ -3,7 +3,7 @@ import {withLocalize} from 'react-localize-redux';
 import Header from '../Components/Header';
 import Sidebar from '../Components/Sidebar';
 import Footer from '../Components/Footer';
-import logoAnimated from '../public/logo-animation.gif.mp4';
+import logoAnimated from '../public/nietzsche_preloader.gif';
 import '../style.css';
 
 class Base extends React.Component {
@@ -16,7 +16,6 @@ class Base extends React.Component {
             loading: true
         };
 
-        this.preloaderRef = React.createRef();
         this.ChangeTheme = this.ChangeTheme.bind(this);
         this.ChangeLang = this.ChangeLang.bind(this);
     };
@@ -42,8 +41,7 @@ class Base extends React.Component {
             }
         );
 
-        this.preloaderRef.current.playbackRate = 3.0;
-        setTimeout(() => this.setState({loading: false}), 3000);
+        setTimeout(() => this.setState({loading: false}), 9000);
     }
 
     ChangeLang(langCode) {
@@ -67,9 +65,7 @@ class Base extends React.Component {
     render() {
         if (this.state.loading === true) {
             return (<div className="wrapper preloading">
-                <video className="preloader" ref={this.preloaderRef} muted  autoPlay>
-                    <source src={logoAnimated}/>
-                </video>
+                <img className="preloader" src={logoAnimated} alt=""/>
             </div>)
         }
         return (

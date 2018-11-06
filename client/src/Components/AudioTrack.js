@@ -125,10 +125,12 @@ class AudioTrack extends React.Component {
     }
 
     turnOff() {
-        this.state.player.pause();
-        this.setState({
-            play: false
-        })
+        if(this.state.player){
+            this.state.player.pause();
+            this.setState({
+                play: false
+            })
+        }
     }
 
     volumeChange(e) {
