@@ -37,20 +37,14 @@ class AudioTracksBox extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            playing: false
-        };
-
-        this.child = React.createRef();
-
+        this.audioRefs = [];
         this.togglePlaying = this.togglePlaying.bind(this);
     }
 
     togglePlaying() {
-        this.state = {
-            playing: true
-        };
-        console.log(this.child.current);
+        this.audioRefs.map((ref) => (
+          ref.turnOff()
+        ))
     }
 
     render() {
@@ -123,7 +117,7 @@ class AudioTracksBox extends React.Component {
 
         return (
             <div className="songs">
-                {playlist.map((track) => (
+                {playlist.map((track, index) => (
                     <AudioTrack
                         number={track.id + ". "}
                         idTranslate={track.idTranslate}
@@ -132,7 +126,7 @@ class AudioTracksBox extends React.Component {
                         cover2x={track.cover2x}
                         cover3x={track.cover3x}
                         key={track.id}
-                        ref="child"
+                        onRef={ref => (this.audioRefs[index] = ref)}
                         togglePlaying={this.togglePlaying}
                     />
                 ))}

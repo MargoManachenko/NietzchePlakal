@@ -49,6 +49,11 @@ class AudioTrack extends React.Component {
                 totalTime: duration
             });
         };
+        this.props.onRef(this)
+    }
+
+    componentWillUnmount() {
+        this.props.onRef(null)
     }
 
     getDurationFormatted(secondsTotal) {
@@ -102,6 +107,7 @@ class AudioTrack extends React.Component {
     }
 
     togglePlay() {
+        this.props.togglePlaying();
         if (this.state.play) {
             this.state.player.pause();
             this.setState({
@@ -109,15 +115,16 @@ class AudioTrack extends React.Component {
             })
 
         } else {
+
             this.state.player.play();
             this.setState({
                 play: true
             });
-            this.props.togglePlaying();
+
         }
     }
 
-    turnOff(){
+    turnOff() {
         this.state.player.pause();
         this.setState({
             play: false
@@ -129,13 +136,12 @@ class AudioTrack extends React.Component {
         let newPlayer = this.state.player;
         let muteUpdate;
         newPlayer.volume = newVolume / 10;
-        console.log(newVolume);
         muteUpdate = newVolume === '0';
         this.setState({
             player: newPlayer,
             volume: newVolume,
             mute: muteUpdate
-        }, console.log(this.state.mute))
+        })
     }
 
     changeMute() {
