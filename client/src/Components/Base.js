@@ -13,7 +13,7 @@ class Base extends React.Component {
         this.state = {
             theme: '',
             lang: '',
-            loading: true
+            loading: false
         };
 
         this.ChangeTheme = this.ChangeTheme.bind(this);
@@ -33,7 +33,8 @@ class Base extends React.Component {
         this.setState({
                 theme: theme,
                 lang: lang,
-                loading: loading
+                // loading: loading
+                loading: false
             }, () => {
                 if (this.state.loading === true) {
                     window.loading = false;
@@ -41,7 +42,7 @@ class Base extends React.Component {
             }
         );
 
-        setTimeout(() => this.setState({loading: false}), 9000);
+        // setTimeout(() => this.setState({loading: false}), 9000);
     }
 
     ChangeLang(langCode) {

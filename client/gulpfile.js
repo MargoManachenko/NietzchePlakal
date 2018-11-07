@@ -10,7 +10,11 @@ gulp.task('css', function () {
         .pipe(sass())
         .pipe(rename('style.css'))
         .pipe(gulp.dest('src'))
-    // .pipe(connect.reload())
+
+    gulp.src('src/styles/*.css')
+        .pipe(sass())
+        .pipe(rename('style.css'))
+        .pipe(gulp.dest('src'))
 });
 
 gulp.task('connect', function () {

@@ -36,13 +36,18 @@ app.post('/api/contact', (req, res) => {
         text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
     };
 
-    smtpTrans.sendMail(mailOps, function (error, response) {
+    smtpTrans.sendMail(mailOps, function (error) {
         if (error) {
-            console.log(error);
-            res.send({message: 'Internal server error. Try later. '});
+            res.send({
+                message: 'Internal server error. Try later.',
+                success: false
+            });
         }
         else {
-            res.send({message: 'Message has been sent.'});
+            res.send({
+                message: 'Message has been sent.',
+                success: true
+            });
         }
     })
 });

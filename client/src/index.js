@@ -4,6 +4,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {LocalizeProvider} from 'react-localize-redux';
 import Main from './Components/Main';
 import './style.css';
+import './styles/_slick-theme.css';
+import './styles/_slick.css';
 import './fonts.css';
 import * as serviceWorker from './serviceWorker';
 

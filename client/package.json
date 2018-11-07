@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "email-validator": "^2.0.4",
+    "jquery": "^3.3.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-localize-redux": "^3.5.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
+    "react-slick": "^0.23.2",
+    "slick-carousel": "^1.8.1",
     "youtube-embed-video": "^1.1.0"
   },
   "devDependencies": {
