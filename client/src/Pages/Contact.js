@@ -67,7 +67,6 @@ class Contact extends React.Component {
                 })
             });
             const res = await response.json();
-            console.log(res)
             this.setState({
                 responseMessage: res.message,
                 responseSuccess: res.success,

@@ -28,6 +28,7 @@
     height: 40vh;
     position: relative;
     cursor: pointer;
+    outline: none;
 }
 
 
