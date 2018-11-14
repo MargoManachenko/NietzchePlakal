@@ -131,8 +131,6 @@ class AudioTracksBox extends React.Component {
                     />
                 ))}
             </div>
-
-
         )
     }
 

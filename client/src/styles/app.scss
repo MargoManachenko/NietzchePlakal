@@ -25,10 +25,6 @@ $border-after-light: #303030;
 
 $video-names: #393939;
 
-* {
-  //font-family: initial !important;
-}
-
 body {
   margin: 0;
   font-size: 12px;
@@ -64,6 +60,7 @@ ul {
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 100%;
+  position: relative;
 }
 
 .wrapper a {
@@ -266,7 +263,7 @@ header {
 }
 
 .wrapper.dark .header-menu a {
-  color: $white;
+  color: $brown-grey;
 }
 
 .wrapper.light .header-menu a {
@@ -274,10 +271,15 @@ header {
 }
 
 .wrapper.dark .header-menu .active a,
-.wrapper.dark .header-menu a:hover,
 .wrapper.light .header-menu .active a,
+.wrapper.dark .header-menu .active a:hover,
+.wrapper.light .header-menu .active a:hover {
+  color: $white;
+}
+
+.wrapper.dark .header-menu a:hover,
 .wrapper.light .header-menu a:hover {
-  color: $brown-grey;
+  color: $taupe;
 }
 
 .header-menu {
@@ -631,6 +633,14 @@ header {
   color: rgba(183, 159, 128, 0.25);
 }
 
+.main.gallery-content .photo-container .icon-close-lightbox {
+  width: 2em;
+  float: right;
+  height: 2em;
+  margin-bottom: 3em;
+  cursor: pointer;
+}
+
 .wrapper.en .main.gallery-content h2 {
   font-family: Brandon_bld, sans-serif;
 }
@@ -652,6 +662,30 @@ header {
 
 .wrapper.dark .main.gallery-content h2 {
   color: rgba(183, 159, 128, 0.25);
+}
+
+.main.gallery-content .photo-lightbox {
+  position: absolute;
+  background-color: white;
+  opacity: 0.8;
+  z-index: 5;
+  height: 100%;
+  top: 0;
+  width: 100%;
+}
+
+.main.gallery-content .photo-lightbox .photo-container {
+  position: absolute;
+  left: 26.3%;
+  top: 21%;
+  width: 63%;
+  height: 60%;
+}
+
+.main.gallery-content .photo-lightbox .photo-container .photo img,
+.main.gallery-content .photo-lightbox .photo {
+  width: 100%;
+  height: 100%;
 }
 
 .main.video-content .video-block {

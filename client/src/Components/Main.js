@@ -24,8 +24,6 @@ class Main extends React.Component {
             translation: globalTranslations,
             options: {renderToStaticMarkup}
         });
-
-
     }
 
     render() {

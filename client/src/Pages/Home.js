@@ -1,5 +1,6 @@
 import React from 'react';
 import {Translate} from 'react-localize-redux';
+import {Transition} from 'react-transition-group';
 import Base from '../Components/Base';
 import darkBacgr1x from '../public/dark-background.jpg';
 import darkBacgr2x from '../public/dark-background@2x.jpg';
@@ -17,12 +18,16 @@ class Home extends React.Component {
                          className="background dark"/>
                     <img src={lightBacgr1x} srcSet={`${lightBacgr2x} 2x, ${lightBacgr3x} 3x`}
                          className="background light"/>
-                    <div className="logo-block">
-                        <h1>Nietzsche Plakal</h1>
-                        <h2 className="logo"><Translate id="content.main.small-headline">
-                            MUSIC BAND
-                        </Translate></h2>
-                    </div>
+                    <Transition timeout={100} in={true} appear>
+                        {(status => (
+                            <div className="logo-block">
+                                <h1 className={status}>Nietzsche Plakal</h1>
+                                <h2 className={`logo ` + status}><Translate id="content.main.small-headline">
+                                    MUSIC BAND
+                                </Translate></h2>
+                            </div>
+                        ))}
+                    </Transition>
                 </div>
             </Base>
         )

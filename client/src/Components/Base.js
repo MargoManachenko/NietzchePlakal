@@ -5,6 +5,7 @@ import Sidebar from '../Components/Sidebar';
 import Footer from '../Components/Footer';
 import logoAnimated from '../public/nietzsche_preloader.gif';
 import '../style.css';
+import './temp.css';
 
 class Base extends React.Component {
 

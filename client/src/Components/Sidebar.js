@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Translate} from 'react-localize-redux'
+import {Translate} from 'react-localize-redux';
+import {Transition} from 'react-transition-group';
 
 import darkBurger from '../public/darkBurger.svg';
 import darkFacebookIcon from '../public/darkFacebook.svg';
@@ -16,9 +17,15 @@ import lightInstagram from '../public/lightInstagram.svg';
 
 const Sidebar = () => (
     <div className="sidebar">
-        <div className="sidebar-logo">
-            <Link to="/" className="logo">NIETZSCHE<br/>PLAKAL</Link>
-        </div>
+
+        <Transition timeout={100} in={true} appear>
+            {(status => (
+                <div className={`sidebar-logo ` + status}>
+                    <Link to="/" className="logo">NIETZSCHE<br/>PLAKAL</Link>
+                </div>
+            ))}
+        </Transition>
+
         <div className="sidebar-menu">
             <Link to="/" className="menu"><Translate id="base.sidebar.sidebar-menu">MENU</Translate></Link>
             <img src={lightBurger} className="lightBurger" alt=""/>
@@ -26,17 +33,23 @@ const Sidebar = () => (
         </div>
         <div className="social-media dark">
             <div className="icons-block">
-                <Link to="https://www.facebook.com/groups/229537741151285/"><img src={darkFacebookIcon} title="Facebook"/></Link>
-                <Link to="https://www.instagram.com/nietzsche_plakal/"><img src={darkInstagram} title="Instagram"/></Link>
-                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ"><img src={darkYouTubeIcon} title="YouTube"/></Link>
+                <Link to="https://www.facebook.com/groups/229537741151285/"><img src={darkFacebookIcon}
+                                                                                 title="Facebook"/></Link>
+                <Link to="https://www.instagram.com/nietzsche_plakal/"><img src={darkInstagram}
+                                                                            title="Instagram"/></Link>
+                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ"><img src={darkYouTubeIcon}
+                                                                                         title="YouTube"/></Link>
                 <Link to="/"><img src={darkTelegramIcon} title="Telegram"/></Link>
             </div>
         </div>
         <div className="social-media light">
             <div className="icons-block">
-                <Link to="https://www.facebook.com/groups/229537741151285/"><img src={lightFacebookIcon} title="Facebook"/></Link>
-                <Link to="https://www.instagram.com/nietzsche_plakal/"><img src={lightInstagram} title="Instagram"/></Link>
-                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ"><img src={lightYouTubeIcon} title="YouTube"/></Link>
+                <Link to="https://www.facebook.com/groups/229537741151285/"><img src={lightFacebookIcon}
+                                                                                 title="Facebook"/></Link>
+                <Link to="https://www.instagram.com/nietzsche_plakal/"><img src={lightInstagram}
+                                                                            title="Instagram"/></Link>
+                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ"><img src={lightYouTubeIcon}
+                                                                                         title="YouTube"/></Link>
                 <Link to="/"><img src={lightTelegramIcon} title="Telegram"/></Link>
             </div>
         </div>

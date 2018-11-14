@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from "react-slick";
 import {Translate} from 'react-localize-redux';
 import Base from '../Components/Base';
+import Photo from '../Components/Photo';
+import PhotoLightbox from '../Components/PhotoLightbox';
 
 import id1photo1x from '../public/gallery/1.jpg';
 import id1photo2x from '../public/gallery/1@2x.jpg';
@@ -28,68 +30,125 @@ import id6photo2x from '../public/gallery/6@2x.jpg';
 import id6photo3x from '../public/gallery/6@3x.jpg';
 
 class Gallery extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            fullSizePicture : false,
+            currentPhoto: {},
+            galleryPhotos: []
+        };
+        this.ToggleFullSizeImage = this.ToggleFullSizeImage.bind(this)
+        this.handleOutsideClick = this.handleOutsideClick.bind(this)
+    }
+
+    componentWillMount(){
+        const galleryPhotos = [
+            {
+                photoId: 1,
+                cover1x: id1photo1x,
+                cover2x: id1photo2x,
+                cover3x: id1photo3x
+            },
+            {
+                photoId: 2,
+                cover1x: id2photo1x,
+                cover2x: id2photo2x,
+                cover3x: id2photo3x
+            },
+            {
+                photoId: 3,
+                cover1x: id3photo1x,
+                cover2x: id3photo2x,
+                cover3x: id3photo3x
+            },
+            {
+                photoId: 4,
+                cover1x: id4photo1x,
+                cover2x: id4photo2x,
+                cover3x: id4photo3x
+            },
+            {
+                photoId: 5,
+                cover1x: id5photo1x,
+                cover2x: id5photo2x,
+                cover3x: id5photo3x
+            },
+            {
+                photoId: 6,
+                cover1x: id6photo1x,
+                cover2x: id6photo2x,
+                cover3x: id6photo3x
+            }
+        ];
+
+        this.setState({
+            galleryPhotos: galleryPhotos
+        });
+        document.addEventListener('click', this.handleOutsideClick, false);
+    }
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+    handleOutsideClick(e){
+        if (e.target.className === 'photo-lightbox' ||e.target.className === 'icon-close-lightbox') {
+            this.setState({
+                fullSizePicture: !this.state.fullSizePicture,
+                currentPhoto: null
+            })
+        }
+    }
+
+    ToggleFullSizeImage(e){
+        let number = e.target.id;
+        let currentPic = this.state.galleryPhotos[number-+1];
+        this.setState({
+            fullSizePicture: !this.state.fullSizePicture,
+            currentPhoto: currentPic
+        })
+    }
+
     render() {
         const settings = {
             className: "center",
-            infinite: true,
+            infinite: false,
             // centerPadding: "60px",
             slidesToShow: 4,
             centerPadding: 0,
             arrows: false,
             swipeToSlide: true,
-            variableWidth: true,
-            afterChange: function (index) {
-                console.log(
-                    `Slider Changed to: ${index + 1}, background: red; color: white`
-                );
-            }
+            variableWidth: true
         };
+
         return (
             <Base>
                 <div className="main gallery-content">
                     <h1><Translate id="content.gallery.headline">Gallery</Translate></h1>
                     <h2><Translate id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
+
+                    {this.state.fullSizePicture?
+                        <PhotoLightbox
+                        currentPicture1x={this.state.currentPhoto.cover1x}
+                        currentPicture2x={this.state.currentPhoto.cover2x}
+                        currentPicture3x={this.state.currentPhoto.cover3x}
+                        />  : null}
+
                     <div className="sliderController">
                         <Slider {...settings}>
-                            <div className="photo">
-                                <img src={id1photo1x} srcSet={`${id1photo2x} 2x, ${id1photo3x} 3x`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
-                            <div className="photo">
-                                <img src={id2photo1x} srcSet={`${id2photo2x} 2x, ${id2photo3x}`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
-                            <div className="photo">
-                                <img src={id3photo1x} srcSet={`${id3photo2x} 2x, ${id3photo3x}`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
-                            <div className="photo">
-                                <img src={id4photo1x} srcSet={`${id4photo2x} 2x, ${id4photo3x}`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
-                            <div className="photo">
-                                <img src={id5photo1x} srcSet={`${id5photo2x} 2x, ${id5photo3x}`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
-                            <div className="photo">
-                                <img src={id6photo1x} srcSet={`${id6photo2x} 2x, ${id6photo3x}`} alt=""/>
-                                <div className="fade">
-                                    <p>view</p>
-                                </div>
-                            </div>
+                            {this.state.galleryPhotos.map((photo) => (
+                                <Photo
+                                    key={photo.photoId}
+                                    photoId={photo.photoId}
+                                    cover1x={photo.cover1x}
+                                    cover2x={photo.cover2x}
+                                    cover3x={photo.cover3x}
+                                    ToggleFullSizeImage={this.ToggleFullSizeImage}
+                                />
+                                ))
+                             }
                         </Slider>
                     </div>
-
                 </div>
             </Base>
         )
