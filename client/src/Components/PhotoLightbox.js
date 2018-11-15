@@ -1,14 +1,20 @@
 import React from 'react';
+import close from '../public/close.svg';
+import {Transition} from 'react-transition-group';
 
 const PhotoLightbox =(props)=>(
-    <div className="photo-lightbox">
+    <Transition timeout={100} in={props.show} appear>
+        {(status => (
+    <div className={"photo-lightbox " + status} id="photo-lightbox">
         <div className="photo-container">
-            <img className="icon-close-lightbox" src="https://image.flaticon.com/icons/svg/61/61155.svg"  alt=""/>
-            <div className="photo">
-                <img src={props.currentPicture1x} srcSet={`${props.currentPicture2x} 2x, ${props.currentPicture3x} 3x`} alt=""/>
-            </div>
+            <img className="icon-close-lightbox" src={close}  alt=""/>
+            {/*<div className="photo">*/}
+                <img className="bigPhoto" src={props.currentPictureBig1x} srcSet={`${props.currentPictureBig2x} 2x, ${props.currentPictureBig3x} 3x`} alt=""/>
+            {/*</div>*/}
         </div>
     </div>
+            ))}
+    </Transition>
 );
 
 export default PhotoLightbox;

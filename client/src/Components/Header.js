@@ -3,7 +3,6 @@ import {Route, Link} from 'react-router-dom';
 import {withLocalize, Translate} from "react-localize-redux";
 import {Transition} from 'react-transition-group';
 import globalTranslations from '../translations/global.json'
-// import './temp.css';
 
 class Header extends React.Component {
 
@@ -15,30 +14,31 @@ class Header extends React.Component {
 
     render() {
         const activeClass = (route) => {
-            return window.location.pathname === route ? "active" : null
+            return window.location.pathname === route ? "active " : null
         };
 
         return (
-            <header>
-                <ul className="header-menu">
-                    <li className={activeClass("/")}><Link to="/"><Translate id="base.menu.home">HOME</Translate></Link>
-                    </li>
-                    <li className={activeClass("/about")}><Link to="/about"><Translate
-                        id="base.menu.about">ABOUT</Translate></Link></li>
-                    <li className={activeClass("/contact")}><Link to="/contact"><Translate id="base.menu.contact">CONTACT</Translate></Link>
-                    </li>
-                    <li className={activeClass("/gallery")}><Link to="/gallery"><Translate id="base.menu.gallery">GALLERY</Translate></Link>
-                    </li>
-                    <li className={activeClass("/music")}><Link to="/music"><Translate
-                        id="base.menu.music">MUSIC</Translate></Link></li>
-                    <li className={activeClass("/video")}><Link to="/video"><Translate
-                        id="base.menu.video">VIDEO</Translate></Link></li>
-                </ul>
-
-
-                <ul className="news">
-                    <Transition timeout={100} in={true} appear>
-                        {(status => (
+            <Transition timeout={100} in={true} appear>
+                {(status => (
+                    <header>
+                        <ul className="header-menu">
+                            <li className={activeClass("/") ? activeClass("/") + status : null}><Link to="/"><Translate
+                                id="base.menu.home">HOME</Translate></Link>
+                            </li>
+                            <li className={activeClass("/about") ? activeClass("/about") + status : null}><Link to="/about"><Translate
+                                id="base.menu.about">ABOUT</Translate></Link></li>
+                            <li className={activeClass("/contact") ? activeClass("/contact") + status : null}><Link to="/contact"><Translate
+                                id="base.menu.contact">CONTACT</Translate></Link>
+                            </li>
+                            <li className={activeClass("/gallery") ? activeClass("/gallery") + status : null}><Link to="/gallery"><Translate
+                                id="base.menu.gallery">GALLERY</Translate></Link>
+                            </li>
+                            <li className={activeClass("/music") ? activeClass("/music") + status : null}><Link to="/music"><Translate
+                                id="base.menu.music">MUSIC</Translate></Link></li>
+                            <li className={activeClass("/video") ? activeClass("/video") + status : null}><Link to="/video"><Translate
+                                id="base.menu.video">VIDEO</Translate></Link></li>
+                        </ul>
+                        <ul className="news">
                             <li className={status}>
                                 <Route path="/event/:eventId">
                                     <div className="news-item">
@@ -48,10 +48,6 @@ class Header extends React.Component {
                                     </div>
                                 </Route>
                             </li>
-                        ))}
-                    </Transition>
-                    <Transition timeout={100} in={true} appear>
-                        {(status => (
                             <li className={status}>
                                 <Route path="/event/:eventId">
                                     <div className="news-item">
@@ -62,10 +58,6 @@ class Header extends React.Component {
                                     </div>
                                 </Route>
                             </li>
-                        ))}
-                    </Transition>
-                    <Transition timeout={100} in={true} appear>
-                        {(status => (
                             <li className={status}>
                                 <Route path="/event/:eventId">
                                     <div className="news-item">
@@ -76,10 +68,10 @@ class Header extends React.Component {
                                     </div>
                                 </Route>
                             </li>
-                        ))}
-                    </Transition>
-                </ul>
-            </header>
+                        </ul>
+                    </header>
+                ))}
+            </Transition>
         )
     }
 }

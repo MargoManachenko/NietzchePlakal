@@ -1,0 +1,140 @@
+.news li {
+    display: inherit;
+}
+
+.news li:first-child.entering {
+    opacity: 0;
+    right: 5em;
+    top: -7em;
+}
+
+.news li:first-child.entered {
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    right: 0;
+    margin-right: 0;
+    top: 0;
+}
+
+.news li:nth-child(2).entering {
+    opacity: 0;
+    right: 4em;
+    top: -10em;
+}
+
+.news li:nth-child(2).entered {
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    right: 0;
+    margin-right: 0;
+    top: 0;
+}
+
+.news li:last-child.entering {
+    opacity: 0;
+    right: 2em;
+    top: -10em;
+}
+
+.news li:last-child.entered {
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    right: 0;
+    margin-right: 0;
+    top: 0;
+}
+
+.wrapper .sidebar-logo.entering {
+    opacity: 0;
+    top: -10em;
+}
+
+.wrapper .sidebar-logo.entered {
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    top: 0;
+}
+
+/*Home - h1 header*/
+.wrapper .content h1.entering{
+    opacity: 0;
+    top: -1em;
+}
+.wrapper .content h1.entered{
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    top: 0;
+}
+/*Home - h2 header*/
+.wrapper .content h2.entering{
+    opacity: 0;
+    left: -4em;
+}
+.wrapper .content h2.entered{
+    opacity: 1;
+    position: relative;
+    transition: all 3s ease;
+    left: 0;
+}
+
+/*Bottom line beneath active link in menu*/
+.header-menu li.active.entering:after{
+    opacity: 1;
+    left: -9em;
+}
+.header-menu li.active.entered:after{
+    opacity: 1;
+    transition: all 3s ease;
+    left: -0.5em;
+}
+
+.wrapper.en .main.gallery-content h1.entering{
+    opacity: 0;
+    left: -2em;
+    top:0;
+
+}
+.wrapper.en .main.gallery-content h1.entered{
+    opacity: 1;
+    /*position: relative;*/
+    transition: all 2s ease;
+    left: 0;
+}
+
+.wrapper .main.gallery-content h2.showInstruction{
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.wrapper .main.gallery-content h2.hideInstruction{
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+/*Gallery lightbox wrapper*/
+.wrapper .main.gallery-content .photo-lightbox.entering{
+    opacity: 0;
+    transition: all 1s ease;
+    z-index: 5;
+}
+.wrapper .main.gallery-content .photo-lightbox.entered{
+    opacity:1;
+    transition: all 1s ease;
+    z-index: 5;
+}
+
+.wrapper .main.gallery-content .photo-lightbox.exiting{
+    opacity: 1;
+    transition: all 1s ease;
+    z-index: 5;
+}
+.wrapper .main.gallery-content .photo-lightbox.exited{
+    opacity:0;
+    transition: all 1s ease;
+    z-index: -1;
+}

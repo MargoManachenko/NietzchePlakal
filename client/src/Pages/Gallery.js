@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 import {Translate} from 'react-localize-redux';
+import {Transition} from 'react-transition-group';
 import Base from '../Components/Base';
 import Photo from '../Components/Photo';
 import PhotoLightbox from '../Components/PhotoLightbox';
@@ -12,6 +13,9 @@ import id1photo3x from '../public/gallery/1@3x.jpg';
 import id2photo1x from '../public/gallery/2.jpg';
 import id2photo2x from '../public/gallery/2@2x.jpg';
 import id2photo3x from '../public/gallery/2@3x.jpg';
+import id2photoBig1x from '../public/gallery/2Big.jpg';
+import id2photoBig2x from '../public/gallery/2Big@2x.jpg';
+import id2photoBig3x from '../public/gallery/2Big@3x.jpg';
 
 import id3photo1x from '../public/gallery/3.jpg';
 import id3photo2x from '../public/gallery/3@2x.jpg';
@@ -31,19 +35,21 @@ import id6photo3x from '../public/gallery/6@3x.jpg';
 
 class Gallery extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
-            fullSizePicture : false,
+            fullSizePicture: false,
             currentPhoto: {},
-            galleryPhotos: []
+            galleryPhotos: [],
+            showInstruction: true
         };
-        this.ToggleFullSizeImage = this.ToggleFullSizeImage.bind(this)
-        this.handleOutsideClick = this.handleOutsideClick.bind(this)
+        this.ToggleFullSizeImage = this.ToggleFullSizeImage.bind(this);
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
+        this.ToggleInstruction = this.ToggleInstruction.bind(this);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         const galleryPhotos = [
             {
                 photoId: 1,
@@ -55,7 +61,12 @@ class Gallery extends React.Component {
                 photoId: 2,
                 cover1x: id2photo1x,
                 cover2x: id2photo2x,
-                cover3x: id2photo3x
+                cover3x: id2photo3x,
+
+                cover1xBig: id2photoBig1x,
+                cover2xBig: id2photoBig2x,
+                cover3xBig: id2photoBig3x
+
             },
             {
                 photoId: 3,
@@ -87,25 +98,33 @@ class Gallery extends React.Component {
             galleryPhotos: galleryPhotos
         });
         document.addEventListener('click', this.handleOutsideClick, false);
+        setInterval(this.ToggleInstruction, 1000);
     }
+
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick, false);
     }
-    handleOutsideClick(e){
-        if (e.target.className === 'photo-lightbox' ||e.target.className === 'icon-close-lightbox') {
+
+    handleOutsideClick(e) {
+        if (e.target.id === 'photo-lightbox' || e.target.className === 'icon-close-lightbox') {
             this.setState({
-                fullSizePicture: !this.state.fullSizePicture,
-                currentPhoto: null
-            })
+                fullSizePicture: !this.state.fullSizePicture
+            });
         }
     }
 
-    ToggleFullSizeImage(e){
+    ToggleFullSizeImage(e) {
         let number = e.target.id;
-        let currentPic = this.state.galleryPhotos[number-+1];
+        let currentPic = this.state.galleryPhotos[number - +1];
         this.setState({
             fullSizePicture: !this.state.fullSizePicture,
             currentPhoto: currentPic
+        })
+    }
+
+    ToggleInstruction() {
+        this.setState({
+            showInstruction: !this.state.showInstruction
         })
     }
 
@@ -124,15 +143,20 @@ class Gallery extends React.Component {
         return (
             <Base>
                 <div className="main gallery-content">
-                    <h1><Translate id="content.gallery.headline">Gallery</Translate></h1>
-                    <h2><Translate id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
+                    <Transition timeout={100} in={true} appear>
+                        {(status => (
+                            <h1 className={status}><Translate id="content.gallery.headline">Gallery</Translate></h1>
+                        ))}
+                    </Transition>
+                    <h2 className={this.state.showInstruction ? "showInstruction" : "hideInstruction"}><Translate
+                        id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
 
-                    {this.state.fullSizePicture?
-                        <PhotoLightbox
-                        currentPicture1x={this.state.currentPhoto.cover1x}
-                        currentPicture2x={this.state.currentPhoto.cover2x}
-                        currentPicture3x={this.state.currentPhoto.cover3x}
-                        />  : null}
+                    <PhotoLightbox
+                        show={this.state.fullSizePicture}
+                        currentPictureBig1x={this.state.currentPhoto.cover1xBig}
+                        currentPictureBig2x={this.state.currentPhoto.cover2xBig}
+                        currentPictureBig3x={this.state.currentPhoto.cover3xBig}
+                    />
 
                     <div className="sliderController">
                         <Slider {...settings}>
@@ -145,8 +169,8 @@ class Gallery extends React.Component {
                                     cover3x={photo.cover3x}
                                     ToggleFullSizeImage={this.ToggleFullSizeImage}
                                 />
-                                ))
-                             }
+                            ))
+                            }
                         </Slider>
                     </div>
                 </div>
