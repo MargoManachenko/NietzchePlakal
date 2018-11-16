@@ -13,22 +13,22 @@ class Home extends React.Component {
     render() {
         return (
             <Base>
-                <div className="main main-content">
-                    <img src={darkBacgr1x} srcSet={`${darkBacgr2x} 2x, ${darkBacgr3x} 3x`}
-                         className="background dark"/>
-                    <img src={lightBacgr1x} srcSet={`${lightBacgr2x} 2x, ${lightBacgr3x} 3x`}
-                         className="background light"/>
-                    <Transition timeout={100} in={true} appear>
-                        {(status => (
+                <Transition timeout={100} in={true} appear>
+                    {(status => (
+                        <div className={"main main-content " + status}>
+                            <img src={darkBacgr1x} srcSet={`${darkBacgr2x} 2x, ${darkBacgr3x} 3x`}
+                                 className="background dark"/>
+                            <img src={lightBacgr1x} srcSet={`${lightBacgr2x} 2x, ${lightBacgr3x} 3x`}
+                                 className="background light"/>
                             <div className="logo-block">
                                 <h1 className={status}>Nietzsche Plakal</h1>
                                 <h2 className={`logo ` + status}><Translate id="content.main.small-headline">
                                     MUSIC BAND
                                 </Translate></h2>
                             </div>
-                        ))}
-                    </Transition>
-                </div>
+                        </div>
+                    ))}
+                </Transition>
             </Base>
         )
     };

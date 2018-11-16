@@ -42,11 +42,15 @@ class Gallery extends React.Component {
             fullSizePicture: false,
             currentPhoto: {},
             galleryPhotos: [],
-            showInstruction: true
+            showInstruction: true,
+            entered: false
         };
         this.ToggleFullSizeImage = this.ToggleFullSizeImage.bind(this);
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
         this.ToggleInstruction = this.ToggleInstruction.bind(this);
+        this.FadeSlick = this.FadeSlick.bind(this);
+
+
     }
 
     componentWillMount() {
@@ -97,12 +101,20 @@ class Gallery extends React.Component {
         this.setState({
             galleryPhotos: galleryPhotos
         });
+
         document.addEventListener('click', this.handleOutsideClick, false);
+
         setInterval(this.ToggleInstruction, 1000);
+        setTimeout(this.FadeSlick, 100);
+
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    FadeSlick(){
+        this.setState({entered: true});
     }
 
     handleOutsideClick(e) {
@@ -119,7 +131,7 @@ class Gallery extends React.Component {
         this.setState({
             fullSizePicture: !this.state.fullSizePicture,
             currentPhoto: currentPic
-        })
+        });
     }
 
     ToggleInstruction() {
@@ -129,8 +141,16 @@ class Gallery extends React.Component {
     }
 
     render() {
+        let slickClassName;
+        if(this.state.entered === true){
+            slickClassName = "center entered";
+        }
+        else{
+            slickClassName = "center entering";
+        }
+
         const settings = {
-            className: "center",
+            className: slickClassName,
             infinite: false,
             // centerPadding: "60px",
             slidesToShow: 4,
@@ -142,38 +162,40 @@ class Gallery extends React.Component {
 
         return (
             <Base>
-                <div className="main gallery-content">
-                    <Transition timeout={100} in={true} appear>
-                        {(status => (
+                <Transition timeout={100} in={true} appear>
+                    {(status => (
+                        <div className={"main gallery-content " + status}>
                             <h1 className={status}><Translate id="content.gallery.headline">Gallery</Translate></h1>
-                        ))}
-                    </Transition>
-                    <h2 className={this.state.showInstruction ? "showInstruction" : "hideInstruction"}><Translate
-                        id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
 
-                    <PhotoLightbox
-                        show={this.state.fullSizePicture}
-                        currentPictureBig1x={this.state.currentPhoto.cover1xBig}
-                        currentPictureBig2x={this.state.currentPhoto.cover2xBig}
-                        currentPictureBig3x={this.state.currentPhoto.cover3xBig}
-                    />
+                            <h2 className={this.state.showInstruction ? "showInstruction" : "hideInstruction"}>
+                                <Translate
+                                    id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
 
-                    <div className="sliderController">
-                        <Slider {...settings}>
-                            {this.state.galleryPhotos.map((photo) => (
-                                <Photo
-                                    key={photo.photoId}
-                                    photoId={photo.photoId}
-                                    cover1x={photo.cover1x}
-                                    cover2x={photo.cover2x}
-                                    cover3x={photo.cover3x}
-                                    ToggleFullSizeImage={this.ToggleFullSizeImage}
-                                />
-                            ))
-                            }
-                        </Slider>
-                    </div>
-                </div>
+                            <PhotoLightbox
+                                show={this.state.fullSizePicture}
+                                currentPictureBig1x={this.state.currentPhoto.cover1xBig}
+                                currentPictureBig2x={this.state.currentPhoto.cover2xBig}
+                                currentPictureBig3x={this.state.currentPhoto.cover3xBig}
+                            />
+
+                            <div className={"sliderController " + status}>
+                                <Slider {...settings}>
+                                    {this.state.galleryPhotos.map((photo) => (
+                                        <Photo
+                                            key={photo.photoId}
+                                            photoId={photo.photoId}
+                                            cover1x={photo.cover1x}
+                                            cover2x={photo.cover2x}
+                                            cover3x={photo.cover3x}
+                                            ToggleFullSizeImage={this.ToggleFullSizeImage}
+                                        />
+                                    ))
+                                    }
+                                </Slider>
+                            </div>
+                        </div>
+                    ))}
+                </Transition>
             </Base>
         )
     }

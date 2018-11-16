@@ -531,6 +531,9 @@ header {
   width: 100%;
   height: auto; }
 
+.main.video-content {
+  overflow: hidden; }
+
 .main.video-content .video-block {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -573,23 +576,6 @@ header {
 .main.music-content .songs {
   overflow-x: auto;
   width: 60%; }
-
-.main.music-content .songs::-webkit-scrollbar {
-  width: 12px; }
-
-.main.music-content .songs::-webkit-scrollbar-thumb {
-  appearance: none;
-  width: 9px;
-  height: 9px;
-  border-radius: 5px;
-  background-color: #b79f80;
-  cursor: pointer; }
-
-.wrapper.light .main.music-content .songs::-webkit-scrollbar-thumb {
-  border: solid 2px #e2e2e2; }
-
-.wrapper.dark .main.music-content .songs::-webkit-scrollbar-thumb {
-  border: solid 2px #1d1d1d; }
 
 .main.music-content .song {
   display: flex;

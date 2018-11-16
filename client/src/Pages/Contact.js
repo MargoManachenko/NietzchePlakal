@@ -1,5 +1,6 @@
 import React from 'react';
 import {Translate} from 'react-localize-redux';
+import {Transition} from 'react-transition-group';
 import ValidateContactForm from '../Modules/Validation';
 import Base from '../Components/Base';
 
@@ -82,72 +83,83 @@ class Contact extends React.Component {
             if (this.state.responseSuccess) {
                 return (
                     <Base>
-                        <div className="main contact-content">
-                            <h1><Translate id="content.contact.headline">Contact</Translate></h1>
-                            <div className="contact-form-response">
-                                <h2>YOUR MESSAGE HAS BEEN SUCCESFULLY SENT.</h2>
-                                <h3>WE WILL CONTACT YOU SHORTLY </h3>
-                            </div>
-                        </div>
+                        <Transition timeout={100} in={true} appear>
+                            {(status => (
+                                <div className={"main contact-content " + status}>
+                                    <h1><Translate id="content.contact.headline">Contact</Translate></h1>
+                                    <div className="contact-form-response">
+                                        <h2>YOUR MESSAGE HAS BEEN SUCCESFULLY SENT.</h2>
+                                        <h3>WE WILL CONTACT YOU SHORTLY </h3>
+                                    </div>
+                                </div>
+                            ))}
+                        </Transition>
                     </Base>
                 )
             }
             else {
-        return (
-            <Base>
-                <div className="main contact-content">
-                    <h1><Translate id="content.contact.headline">Contact</Translate></h1>
-                    <div className="contact-form-response">
-                        <h2>Some error occurred.</h2>
-                        <h3>Try sending the request later </h3>
-                    </div>
-                </div>
-            </Base>
-        )
+                return (
+                    <Base>
+                        <Transition timeout={100} in={true} appear>
+                            {(status => (
+                                <div className={"main contact-content " + status}>
+                                    <h1 className={status}><Translate id="content.contact.headline">Contact</Translate>
+                                    </h1>
+                                    <div className="contact-form-response">
+                                        <h2>Some error occurred.</h2>
+                                        <h3>Try sending the request later </h3>
+                                    </div>
+                                </div>
+                            ))}
+                        </Transition>
+                    </Base>
+                )
             }
         }
         else {
             return (
                 <Base>
-                    <div className="main contact-content">
-                        <h1><Translate id="content.contact.headline">Contact</Translate></h1>
-                        <div className="contacts">
-                            <div className="contact-item">
-                                <span className="bold"><Translate
-                                    id="content.contact.booking">Bookings:</Translate></span>
-                                <span className="bold"><Translate id="content.contact.phone">Phone:</Translate></span>
-
+                    <Transition timeout={100} in={true} appear>
+                        {(status => (
+                            <div className={"main contact-content " + status}>
+                                <h1><Translate id="content.contact.headline">Contact</Translate></h1>
+                                <div className={"contacts " + status}>
+                                    <div className="contact-item">
+                                        <span className="bold"><Translate
+                                             id="content.contact.booking">Bookings:</Translate></span>
+                                        <span className="bold"><Translate id="content.contact.phone">Phone:</Translate></span>
+                                    </div>
+                                    <div className="contact-item">
+                                        <span>plakalnietzsche@gmail.com</span>
+                                        <span>(+38) 099 522 03 46</span>
+                                    </div>
+                                </div>
+                                <form onSubmit={this.sendForm} className="contact-form">
+                                    <div className="input-block">
+                                        <input type="text" placeholder="Name" name="name" autoComplete="off"
+                                               value={this.state.name} onChange={this.handleChange}
+                                               className={this.state.nameValid ? '' : 'error'}/> <br/>
+                                        <p className="result error">{this.state.formErrors.name}</p>
+                                    </div>
+                                    <div className="input-block">
+                                        <input type="text" placeholder="Email" name="email" autoComplete="off"
+                                               value={this.state.email} onChange={this.handleChange}
+                                               className={this.state.emailValid ? '' : 'error'}/> <br/>
+                                        <p className="result error">{this.state.formErrors.email}</p>
+                                    </div>
+                                    <div className="input-block">
+                                        <input type="text" placeholder="Message" name="message" autoComplete="off"
+                                               value={this.state.message} onChange={this.handleChange}
+                                               className={this.state.messageValid ? '' : 'error'}/> <br/>
+                                        <p className="result error">{this.state.formErrors.message}</p>
+                                    </div>
+                                    <button type="submit" className="send"><Translate
+                                        id="content.contact.btn-send">Send</Translate>
+                                    </button>
+                                </form>
                             </div>
-                            <div className="contact-item">
-                                <span>plakalnietzsche@gmail.com</span>
-                                <span>(+38) 099 522 03 46</span>
-                            </div>
-
-                        </div>
-                        <form onSubmit={this.sendForm} className="contact-form">
-                            <div className="input-block">
-                                <input type="text" placeholder="Name" name="name" autoComplete="off"
-                                       value={this.state.name} onChange={this.handleChange}
-                                       className={this.state.nameValid ? '' : 'error'}/> <br/>
-                                <p className="result error">{this.state.formErrors.name}</p>
-                            </div>
-                            <div className="input-block">
-                                <input type="text" placeholder="Email" name="email" autoComplete="off"
-                                       value={this.state.email} onChange={this.handleChange}
-                                       className={this.state.emailValid ? '' : 'error'}/> <br/>
-                                <p className="result error">{this.state.formErrors.email}</p>
-                            </div>
-                            <div className="input-block">
-                                <input type="text" placeholder="Message" name="message" autoComplete="off"
-                                       value={this.state.message} onChange={this.handleChange}
-                                       className={this.state.messageValid ? '' : 'error'}/> <br/>
-                                <p className="result error">{this.state.formErrors.message}</p>
-                            </div>
-                            <button type="submit" className="send"><Translate
-                                id="content.contact.btn-send">Send</Translate>
-                            </button>
-                        </form>
-                    </div>
+                        ))}
+                    </Transition>
                 </Base>
             )
         }
