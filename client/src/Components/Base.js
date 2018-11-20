@@ -23,6 +23,7 @@ class Base extends React.Component {
         this.ChangeTheme = this.ChangeTheme.bind(this);
         this.ChangeLang = this.ChangeLang.bind(this);
         this.FadeToFalse = this.FadeToFalse.bind(this);
+        this.FadeToTrue = this.FadeToTrue.bind(this);
     };
 
     componentDidMount() {
@@ -60,29 +61,37 @@ class Base extends React.Component {
 
     ChangeTheme(event) {
         let newTheme = event.target.name;
-        if (newTheme !== this.state.theme) {
-            this.setState({
-                theme: newTheme,
-                fade: true
-            },console.log(this.state.fade));
-            localStorage.setItem('theme', newTheme);
-        }
-        setTimeout(this.FadeToFalse, 5000)
+        this.FadeToTrue();
+        setTimeout(() => {
+            if (newTheme !== this.state.theme) {
+                this.setState({
+                    theme: newTheme
+                    // fade: true
+                }, () => console.log('changed'));
+                localStorage.setItem('theme', newTheme);
+            }
+            // setTimeout(this.FadeToFalse, 1000);
+            this.FadeToFalse();
+        }, 200)
     }
 
-    FadeToFalse(){
+    FadeToTrue() {
+        this.setState({fade: true});
+    }
+
+    FadeToFalse() {
         this.setState({fade: false});
     }
 
     render() {
-        console.log(this.state.fade);
+        // console.log(this.state.fade);
         if (this.state.loading === true) {
             return (<div className="wrapper preloading">
                 <img className="preloader" src={logoAnimated} alt=""/>
             </div>)
         }
         return (
-            <Transition timeout={10000} in={this.state.fade} appear>
+            <Transition timeout={200} in={this.state.fade} appear>
                 {(status => (
                     <div className={"wrapper " + this.state.theme + " " + this.state.lang + " " + status}>
                         <Sidebar/>

@@ -3,13 +3,11 @@
 }
 
 .news li:first-child.entering {
-    opacity: 0;
     right: 5em;
     top: -7em;
 }
 
 .news li:first-child.entered {
-    opacity: 1;
     position: relative;
     transition: all 3s ease;
     right: 0;
@@ -18,13 +16,11 @@
 }
 
 .news li:nth-child(2).entering {
-    opacity: 0;
     right: 4em;
     top: -10em;
 }
 
 .news li:nth-child(2).entered {
-    opacity: 1;
     position: relative;
     transition: all 3s ease;
     right: 0;
@@ -33,13 +29,11 @@
 }
 
 .news li:last-child.entering {
-    opacity: 0;
     right: 2em;
     top: -10em;
 }
 
 .news li:last-child.entered {
-    opacity: 1;
     position: relative;
     transition: all 3s ease;
     right: 0;
@@ -75,13 +69,11 @@
 /*Bottom line beneath active link in menu*/
 .header-menu li.active.entering:after {
     opacity: 1;
-    left: -9em;
 }
 
 .header-menu li.active.entered:after {
     opacity: 1;
     transition: all 3s ease;
-    left: -0.5em;
 }
 
 /*headers*/
@@ -96,6 +88,11 @@
 }
 
 /*Home - h1 header*/
+
+.wrapper .main.main-content h1 {
+    transition: all 3s ease;
+}
+
 .wrapper .main.main-content h1.entering {
     opacity: 0;
     top: -1em;
@@ -104,103 +101,160 @@
 .wrapper .main.main-content h1.entered {
     opacity: 1;
     position: relative;
-    transition: all 3s ease;
     top: 0;
 }
 
 /*Gallery*/
 
-.wrapper.en .main.gallery-content h1.entering {
+.wrapper .main.gallery-content h1.entering {
+    position: relative;
     opacity: 0;
     left: -2em;
     top: 0;
 }
 
-.wrapper.en .main.gallery-content h1.entered {
+.wrapper .main.gallery-content h1.entered {
     opacity: 1;
-    /*position: relative;*/
+    position: relative;
     transition: all 2s ease;
     left: 0;
 }
 
+.wrapper .main.gallery-content h2 {
+    transition: all 1s ease;
+}
+
 .wrapper .main.gallery-content h2.showInstruction {
     opacity: 1;
-    transition: all 1s ease;
 }
 
 .wrapper .main.gallery-content h2.hideInstruction {
     opacity: 0;
-    transition: all 1s ease;
+
 }
 
 /*Gallery lightbox wrapper*/
+.wrapper .main.gallery-content .photo-lightbox {
+    transition: all 1s ease;
+}
+
 .wrapper .main.gallery-content .photo-lightbox.entering {
     opacity: 0;
-    transition: all 1s ease;
     z-index: 5;
 }
 
 .wrapper .main.gallery-content .photo-lightbox.entered {
     opacity: 1;
-    transition: all 1s ease;
     z-index: 5;
 }
 
 .wrapper .main.gallery-content .photo-lightbox.exiting {
     opacity: 1;
-    transition: all 1s ease;
     z-index: 5;
 }
 
 .wrapper .main.gallery-content .photo-lightbox.exited {
     opacity: 0;
-    transition: all 1s ease;
     z-index: -1;
 }
 
-.wrapper.entering{
-opacity: 0 !important;
-transition: all 4s ease;
-}
-.wrapper.entered{
-opacity: 1 !important;
-transition: all 4s ease;
+.wrapper {
+    transition: all 4s ease;
 }
 
+.wrapper.entering {
+    opacity: 0;
+}
+
+.wrapper.entered {
+    opacity: 1;
+}
+
+.wrapper.exiting {
+    opacity: 0;
+}
+
+.wrapper.exited {
+    opacity: 1;
+}
 
 /*TODO*/
+.wrapper .main {
+    transition: all 2s ease;
+}
+
 .wrapper .main.entering {
     opacity: 0;
-    transition: all 2s ease;
 }
 
 .wrapper .main.entered {
     opacity: 1;
+}
+
+.slick-slider {
     transition: all 2s ease;
 }
 
 .slick-slider.entering {
     opacity: 0;
-    transition: all 2s ease;
 }
 
 .slick-slider.entered {
     opacity: 1;
-    transition: all 2s ease;
 }
 
 /*Video*/
+.wrapper .main .video-block {
+    transition: all 2s ease;
+}
+
 .wrapper .main .video-block.entering {
     position: relative;
     left: 100vw;
     opacity: 0;
-    transition: all 2s ease;
 }
 
 .wrapper .main .video-block.entered {
     position: relative;
     opacity: 1;
     left: 0;
+}
+
+/*Gallery*/
+.wrapper .gallery-content {
+    overflow: hidden;
+}
+
+.wrapper .main .sliderController {
+    transition: all 2s ease;
+}
+
+.wrapper .main .sliderController.entering {
+    position: relative;
+    left: 20vw;
+    opacity: 0;
+}
+
+.wrapper .main .sliderController.entered {
+    position: relative;
+    opacity: 1;
+    left: 0;
+}
+
+.wrapper .main .sliderController .photo {
+    transition: all 2s ease;
+}
+
+.wrapper .main .sliderController .photo.entering {
+    left: 5vw;
+}
+
+.wrapper .main .sliderController .photo.entered {
+    left: 0;
+}
+
+/*Contact*/
+.wrapper .contact-content .contacts {
     transition: all 2s ease;
 }
 
@@ -208,55 +262,169 @@ transition: all 4s ease;
     position: relative;
     top: -5em;
     opacity: 0;
-    transition: all 2s ease;
 }
 
 .wrapper .contact-content .contacts.entered {
     position: relative;
     top: 0;
     opacity: 1;
+
+}
+.wrapper .music-content .songs-center{
     transition: all 2s ease;
 }
-
 .wrapper .music-content .songs-center.entering {
     position: relative;
     top: -4em;
     opacity: 0;
-    transition: all 2s ease;
 }
 
 .wrapper .music-content .songs-center.entered {
     position: relative;
     top: 0;
     opacity: 1;
-    transition: all 2s ease;
+
+}
+
+.wrapper .about-content h3 {
+    transition: all 1s ease;
 }
 
 .wrapper .about-content.entering h3 {
     opacity: 0;
     position: relative;
     top: -2em;
-    transition: all 1s ease;
 }
 
 .wrapper .about-content.entered h3 {
     position: relative;
     top: 0;
-    transition: all 1s ease;
     opacity: 1;
+}
+
+.wrapper .about-content p {
+    transition: all 1s ease;
 }
 
 .wrapper .about-content p.entering {
     opacity: 0;
     position: relative;
     top: -0.5em;
-    transition: all 1s ease;
 }
 
 .wrapper .about-content p.entered {
     position: relative;
     top: 0;
-    transition: all 1s ease;
     opacity: 1;
 }
 
+/*Header underline*/
+.header-menu {
+    position: relative;
+}
+
+.header-menu .underline {
+    display: block;
+    width: 1.5em;
+    position: absolute;
+    top: 2em;
+    border-bottom: 1px solid white;
+    transition: all 2s ease;
+}
+
+.header-menu li:first-child.active ~ .underline {
+    transition: all 2s ease;
+}
+
+.header-menu li:first-child.active.entered ~ .underline {
+    left: -0.7%;
+}
+
+.header-menu li:nth-child(2).active.entered ~ .underline {
+    left: 54.4%;
+}
+
+.header-menu li:nth-child(3).active.entered ~ .underline {
+    left: 63.4%;
+}
+
+.header-menu li:nth-child(4).active.entered ~ .underline {
+    left: 72.3%;
+}
+
+.header-menu li:nth-child(5).active.entered ~ .underline {
+    left: 81.3%;
+}
+
+.header-menu li:nth-child(6).active.entered ~ .underline {
+    left: 90.4%;
+}
+
+.wrapper.dark .header-menu li.active ~ .underline {
+    border-bottom: 1px solid white;
+}
+
+.wrapper.light .header-menu ~ .underline {
+    border-bottom: 1px solid white;
+}
+
+.burger-box {
+    width: 19px;
+    height: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transform: rotate(90deg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.burger-box img:last-child {
+    align-self: flex-end;
+}
+
+/*.burger-box.entering {*/
+    /*opacity: 0;*/
+/*}*/
+
+/*.burger-box.entered {*/
+    /*opacity: 1;*/
+    /*transition: all 2s ease;*/
+/*}*/
+
+.burger-box .line1,
+.burger-box .line2 {
+    transition: all 2s ease;
+}
+
+.burger-box.entering .line1 {
+    margin-top: -0.2em;
+}
+
+.burger-box.entering .line2 {
+    margin-top: -0.6em;
+}
+
+.burger-box.entered .line1 {
+    margin-top: 0;
+}
+
+.burger-box.entered .line2 {
+    margin-top: 0;
+}
+
+.burger-box .line1{
+    height: 0.7em;
+    border-left: solid 1px #979797;
+}
+
+.burger-box .line2{
+    height: 1.5em;
+    border-left: solid 1px #979797;
+}
+
+.burger-box .line3{
+    height: 0.3em;
+    border-left: solid 1px #979797;
+    align-self: flex-end;
+}

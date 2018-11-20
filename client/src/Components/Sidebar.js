@@ -15,22 +15,37 @@ import lightYouTubeIcon from '../public/lightYouTube.svg';
 import lightTelegramIcon from '../public/lightTelegram.svg';
 import lightInstagram from '../public/lightInstagram.svg';
 
+import burgerLine1 from '../public/line1.svg';
+import burgerLine2 from '../public/line2.svg';
+import burgerLine3 from '../public/line3.svg';
+
 const Sidebar = () => (
     <div className="sidebar">
 
         <Transition timeout={100} in={true} appear>
             {(status => (
-                <div className={`sidebar-logo ` + status}>
+                <div className={window.loadingAnimation === undefined ? "sidebar-logo " + status : "sidebar-logo"}>
                     <Link to="/" className="logo">NIETZSCHE<br/>PLAKAL</Link>
                 </div>
             ))}
         </Transition>
-
-        <div className="sidebar-menu">
-            <Link to="/" className="menu"><Translate id="base.sidebar.sidebar-menu">MENU</Translate></Link>
-            <img src={lightBurger} className="lightBurger" alt=""/>
-            <img src={darkBurger} className="darkBurger" alt=""/>
-        </div>
+        <Transition timeout={100} in={true} appear>
+            {(status => (
+                <div className="sidebar-menu">
+                    <Link to="/" className="menu"><Translate id="base.sidebar.sidebar-menu">MENU</Translate></Link>
+                    <div className={"burger-box " + status}>
+                        {/*<img src={burgerLine1} alt=""/>*/}
+                        {/*<img src={burgerLine2} alt=""/>*/}
+                        {/*<img src={burgerLine3} alt=""/>*/}
+                        <div className="line1"/>
+                        <div className="line2"/>
+                        <div className="line3"/>
+                    </div>
+                    {/*<img src={lightBurger} className="lightBurger" alt=""/>*/}
+                    {/*<img src={darkBurger} className="darkBurger" alt=""/>*/}
+                </div>
+            ))}
+        </Transition>
         <div className="social-media dark">
             <div className="icons-block">
                 <Link to="https://www.facebook.com/groups/229537741151285/"><img src={darkFacebookIcon}

@@ -162,7 +162,7 @@ class Gallery extends React.Component {
 
         return (
             <Base>
-                <Transition timeout={100} in={true} appear>
+                <Transition timeout={500} in={true} appear>
                     {(status => (
                         <div className={"main gallery-content " + status}>
                             <h1 className={status}><Translate id="content.gallery.headline">Gallery</Translate></h1>
@@ -188,9 +188,9 @@ class Gallery extends React.Component {
                                             cover2x={photo.cover2x}
                                             cover3x={photo.cover3x}
                                             ToggleFullSizeImage={this.ToggleFullSizeImage}
+                                            timeout={photo.photoId*400}
                                         />
-                                    ))
-                                    }
+                                    ))}
                                 </Slider>
                             </div>
                         </div>

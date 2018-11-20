@@ -16,7 +16,7 @@ const Footer = (props) => (
                    onClick={props.ChangeTheme}><Translate id="base.footer.theme-light">light</Translate></a>
             </div>
         </div>
-        <div>
+        <div className="question-block">
             <Link to="" className="question"><Translate id="base.footer.naming">why did we choose this name?</Translate></Link>
         </div>
     </footer>
