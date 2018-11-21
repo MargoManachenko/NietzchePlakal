@@ -17,9 +17,9 @@ class Home extends React.Component {
                     {(status => (
                         <div className={"main main-content " + status}>
                             <img src={darkBacgr1x} srcSet={`${darkBacgr2x} 2x, ${darkBacgr3x} 3x`}
-                                 className="background dark"/>
+                                 className="background dark" alt=""/>
                             <img src={lightBacgr1x} srcSet={`${lightBacgr2x} 2x, ${lightBacgr3x} 3x`}
-                                 className="background light"/>
+                                 className="background light" alt=""/>
                             <div className="logo-block">
                                 <h1 className={status}>Nietzsche Plakal</h1>
                                 <h2 className={`logo ` + status}><Translate id="content.main.small-headline">

@@ -560,7 +560,11 @@ header {
 
 .main.music-content .songs {
   overflow-x: auto;
-  width: 60%; }
+  width: 60%;
+  margin-top: -2em; }
+
+.main.music-content .songs .song:first-child {
+  margin-top: 2em; }
 
 .main.music-content .song {
   display: flex;
