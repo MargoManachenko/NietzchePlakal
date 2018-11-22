@@ -48,34 +48,34 @@ const Sidebar = () => (
         </Transition>
         <div className="social-media dark">
             <div className="icons-block">
-                <Link to="https://www.facebook.com/groups/229537741151285/">
+                <a href="https://www.facebook.com/groups/229537741151285/">
                     <img src={darkFacebookIcon} title="Facebook" alt=""/>
-                </Link>
-                <Link to="https://www.instagram.com/nietzsche_plakal/">
+                </a>
+                <a href="https://www.instagram.com/nietzsche_plakal/">
                     <img src={darkInstagram} title="Instagram" alt=""/>
-                </Link>
-                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
+                </a>
+                <a href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
                     <img src={darkYouTubeIcon} title="YouTube" alt=""/>
-                </Link>
-                <Link to="/">
+                </a>
+                <a href="/">
                     <img src={darkTelegramIcon} title="Telegram" alt=""/>
-                </Link>
+                </a>
             </div>
         </div>
         <div className="social-media light">
             <div className="icons-block">
-                <Link to="https://www.facebook.com/groups/229537741151285/">
+                <a href="https://www.facebook.com/groups/229537741151285/">
                     <img src={lightFacebookIcon} title="Facebook" alt=""/>
-                </Link>
-                <Link to="https://www.instagram.com/nietzsche_plakal/">
+                </a>
+                <a href="https://www.instagram.com/nietzsche_plakal/">
                     <img src={lightInstagram} title="Instagram" alt=""/>
-                </Link>
-                <Link to="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
+                </a>
+                <a href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
                     <img src={lightYouTubeIcon} title="YouTube" alt=""/>
-                </Link>
-                <Link to="/">
+                </a>
+                <a href="/">
                     <img src={lightTelegramIcon} title="Telegram" alt=""/>
-                </Link>
+                </a>
             </div>
         </div>
     </div>
