@@ -6,7 +6,7 @@ const Photo = (props) => (
         {(status)=>(
             <div className={"photo " + status}>
                 <img src={props.cover1x} srcSet={`${props.cover2x} 2x, ${props.cover3x} 3x`} alt=""/>
-                <div className="fade" id={props.photoId} onClick={props.ToggleFullSizeImage}>
+                <div className="fade" id={props.photoId} onClick={props.ToggleFullSizeImage} onMouseDown={props.onMouseDown}>
                     <p>view</p>
                 </div>
             </div>

@@ -67,7 +67,7 @@ class Base extends React.Component {
                 this.setState({
                     theme: newTheme
                     // fade: true
-                }, () => console.log('changed'));
+                });
                 localStorage.setItem('theme', newTheme);
             }
             // setTimeout(this.FadeToFalse, 1000);

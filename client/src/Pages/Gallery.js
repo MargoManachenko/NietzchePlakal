@@ -43,12 +43,17 @@ class Gallery extends React.Component {
             currentPhoto: {},
             galleryPhotos: [],
             showInstruction: true,
-            entered: false
+            entered: false,
+            dragging: false,
+            clientXonMouseDown: null,
+            clientYonMouseDown: null
         };
+        this.sliderRef = React.createRef();
         this.ToggleFullSizeImage = this.ToggleFullSizeImage.bind(this);
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
         this.ToggleInstruction = this.ToggleInstruction.bind(this);
         this.FadeSlick = this.FadeSlick.bind(this);
+        this.GetCoordinates = this.GetCoordinates.bind(this);
 
 
     }
@@ -106,14 +111,24 @@ class Gallery extends React.Component {
 
         setInterval(this.ToggleInstruction, 1000);
         setTimeout(this.FadeSlick, 100);
+    }
 
+    componentDidMount() {
+        let sliderController = document.getElementsByClassName("sliderController")[0];
+        let slick = this.sliderRef.current;
+        if (sliderController) {
+            sliderController.addEventListener('wheel', event => {
+                event.preventDefault();
+                event.deltaY > 0 ? slick.slickNext() : slick.slickPrev();
+            }, false)
+        }
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
-    FadeSlick(){
+    FadeSlick() {
         this.setState({entered: true});
     }
 
@@ -126,12 +141,20 @@ class Gallery extends React.Component {
     }
 
     ToggleFullSizeImage(e) {
-        let number = e.target.id;
-        let currentPic = this.state.galleryPhotos[number - +1];
-        this.setState({
-            fullSizePicture: !this.state.fullSizePicture,
-            currentPhoto: currentPic
-        });
+        e.stopPropagation();
+        if (this.state.clientXonMouseDown !== e.clientX ||
+            this.state.clientYonMouseDown !== e.clientY) {
+            e.preventDefault()
+        }
+        else {
+            e.preventDefault();
+            let number = e.target.id;
+            let currentPic = this.state.galleryPhotos[number - +1];
+            this.setState({
+                fullSizePicture: !this.state.fullSizePicture,
+                currentPhoto: currentPic
+            });
+        }
     }
 
     ToggleInstruction() {
@@ -140,20 +163,37 @@ class Gallery extends React.Component {
         })
     }
 
+    GetCoordinates(e) {
+        this.setState({
+            clientXonMouseDown: e.clientX,
+            clientYonMouseDown: e.clientY
+        });
+        e.preventDefault();
+    }
+
     render() {
         let slickClassName;
-        if(this.state.entered === true){
+        if (this.state.entered === true) {
             slickClassName = "center entered";
         }
-        else{
+        else {
             slickClassName = "center entering";
         }
+        let sliderController = document.getElementsByClassName("sliderController")[0];
+        let sliderPhoto= document.getElementsByClassName("fade")[0];
+        let slidesToShow = 3;
+        if(sliderController){
+            slidesToShow = Math.round(sliderController.offsetWidth / sliderPhoto.offsetWidth);
+            console.log(slidesToShow)
+        }
+
 
         const settings = {
             className: slickClassName,
-            infinite: false,
+            infinite: true,
             // centerPadding: "60px",
-            slidesToShow: 4,
+            // slidesToShow: slidesToShow-2,
+            slidesToShow: 3,
             centerPadding: 0,
             arrows: false,
             swipeToSlide: true,
@@ -178,8 +218,8 @@ class Gallery extends React.Component {
                                 currentPictureBig3x={this.state.currentPhoto.cover3xBig}
                             />
 
-                            <div className={"sliderController " + status}>
-                                <Slider {...settings}>
+                            <div className={"sliderController " + status} id="slider">
+                                <Slider {...settings} ref={this.sliderRef}>
                                     {this.state.galleryPhotos.map((photo) => (
                                         <Photo
                                             key={photo.photoId}
@@ -188,7 +228,8 @@ class Gallery extends React.Component {
                                             cover2x={photo.cover2x}
                                             cover3x={photo.cover3x}
                                             ToggleFullSizeImage={this.ToggleFullSizeImage}
-                                            timeout={photo.photoId*400}
+                                            timeout={photo.photoId * 400}
+                                            onMouseDown={e => this.GetCoordinates(e)}
                                         />
                                     ))}
                                 </Slider>

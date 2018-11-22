@@ -25,14 +25,33 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        const breakPoints = [-0.7, 54.4, 63.4, 72.3, 81.3, 90.4];
+        let breakPoints;
+        const breakPoints1920px = [-0.7, 54.4, 63.4, 72.3, 81.3, 90.4];
+        const breakPoints1670px = [-0.8, 47.6, 58, 68.4, 78.9, 89.3];
+        const breakPoints1280px = [-0.8, 39.6, 51.8, 64.4, 76.8, 89.1];
+
+
+        if(window.innerWidth > 1670){
+            breakPoints = breakPoints1920px;
+            console.log("> 1670");
+        }
+        if(window.innerWidth <= 1670){
+            breakPoints = breakPoints1670px;
+            console.log("1670");
+        }
+        if(window.innerWidth <= 1280){
+            breakPoints = breakPoints1280px;
+            console.log("1280");
+        }
+
+
         let LocalStorageCurrentPoint = localStorage.getItem("currentPoint");
         let localPoint = LocalStorageCurrentPoint === null ? 0 : LocalStorageCurrentPoint;
         let LocalStorageEnteringValue = localStorage.getItem("enteringValue");
         let enteringValue = LocalStorageEnteringValue === null ? breakPoints[0] : LocalStorageEnteringValue;
 
         let loadingAnimationFromWindow = window.loadingAnimation;
-        console.log(window.loadingAnimation);
+        // console.log(window.loadingAnimation);
         let loading = loadingAnimationFromWindow === undefined ? true : loadingAnimationFromWindow;
 
         this.setState({
@@ -62,7 +81,6 @@ class Header extends React.Component {
 
 
     ChangePoint(value) {
-
         let LocalStorageCurrentPoint = localStorage.getItem("currentPointNext");
         let LocalStorageEnteringValue = localStorage.getItem("enteringValueNext");
 
@@ -79,7 +97,6 @@ class Header extends React.Component {
         const activeClass = (route) => {
             return window.location.pathname === route ? "active " : null;
         };
-
         let enteringStyle = {};
         enteringStyle = {left: this.state.enteringValue + "%"};
         if (this.state.loadingAnimation) {

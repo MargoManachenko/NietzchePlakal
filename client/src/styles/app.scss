@@ -279,9 +279,10 @@ header {
 }
 
 .header-menu {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  position: relative;
 }
 
 .header-menu li {
@@ -294,6 +295,52 @@ header {
   margin-right: 46%;
 }
 
+.header-menu .underline {
+  display: block;
+  width: 1.5em;
+  position: absolute;
+  top: 2em;
+  border-bottom: 1px solid white;
+  transition: all 2s ease;
+}
+
+.header-menu li:first-child.active ~ .underline {
+  transition: all 2s ease;
+}
+
+.header-menu li:first-child.active.entered ~ .underline {
+  left: -0.7%;
+}
+
+.header-menu li:nth-child(2).active.entered ~ .underline {
+  left: calc(46% + 8.4%);
+}
+
+.header-menu li:nth-child(3).active.entered ~ .underline {
+  left: calc(46% + 17.4%);
+}
+
+.header-menu li:nth-child(4).active.entered ~ .underline {
+  left: calc(46% + 26.3%);
+}
+
+.header-menu li:nth-child(5).active.entered ~ .underline {
+  left: calc(46% + 35.3%);
+}
+
+.header-menu li:nth-child(6).active.entered ~ .underline {
+  left: calc(46% + 44.4%);
+}
+
+.wrapper.dark .header-menu li.active ~ .underline {
+  border-bottom: 1px solid white;
+}
+
+.wrapper.light .header-menu ~ .underline {
+  border-bottom: 1px solid white;
+}
+
+//
 //.header-menu li.active:after {
 //  content: '';
 //  display: block;
@@ -310,7 +357,7 @@ header {
 //.wrapper.light .header-menu li.active:after {
 //  border-bottom: 1px solid $border-after-light;
 //}
-
+//
 .news .news-item {
   font-size: 10px;
   letter-spacing: 2.8px;
@@ -742,6 +789,11 @@ header {
 .main.music-content .songs {
   overflow-x: auto;
   width: 60%;
+  margin-top: -2em;
+}
+
+.main.music-content .songs .song:first-child {
+  margin-top: 2em;
 }
 
 //.main.music-content .songs::-webkit-scrollbar {
@@ -1010,9 +1062,11 @@ footer .lang a:last-child {
 .wrapper.light footer .lang a.active {
   color: $black;
 }
-.wrapper footer .theme-block{
+
+.wrapper footer .theme-block {
   justify-self: center;
 }
+
 .wrapper.en footer .theme {
   font-family: Brandon_light, sans-serif;
 }
@@ -1079,9 +1133,11 @@ footer .theme a:last-child {
   font-family: MontserratMedium, sans-serif;
   font-size: 12px;
 }
-footer .question-block{
+
+footer .question-block {
   justify-self: end;
 }
+
 footer a.question {
   display: block;
   height: 1.3em;
@@ -1105,6 +1161,30 @@ footer a.question {
   .header-menu li:first-child {
     margin-right: 38%;
   }
+
+  .header-menu li:first-child.active.entered ~ .underline {
+    left: -0.8%;
+  }
+  .header-menu li:nth-child(2).active.entered ~ .underline {
+    left: calc(38% + 9.6%);
+  }
+
+  .header-menu li:nth-child(3).active.entered ~ .underline {
+    left: calc(38% + 20%);
+  }
+
+  .header-menu li:nth-child(4).active.entered ~ .underline {
+    left: calc(38% + 30.4%);
+  }
+
+  .header-menu li:nth-child(5).active.entered ~ .underline {
+    left: calc(38% + 40.9%);
+  }
+
+  .header-menu li:nth-child(6).active.entered ~ .underline {
+    left: calc(38% + 51.3%);
+  }
+
   .main.about-content {
     padding: 2vh calc(4.5vw + 25.5em) 30vh 4.5vw;
   }
@@ -1112,6 +1192,14 @@ footer a.question {
   .wrapper.ru .header-menu li:first-child,
   .wrapper.ua .header-menu li:first-child {
     margin-right: 21%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .wrapper h2,
+  .header-menu,
+  .wrapper .sidebar-logo a.logo {
+    font-size: 10.5px;
   }
 }
 
@@ -1151,12 +1239,40 @@ footer a.question {
   .header-menu li:first-child {
     margin-right: 28%;
   }
+  .header-menu li:first-child.active.entered ~ .underline {
+    left: -0.8%;
+  }
+  .header-menu li:nth-child(2).active.entered ~ .underline {
+    left: calc(38% + 1.6%);
+  }
+
+  .header-menu li:nth-child(3).active.entered ~ .underline {
+    left: calc(38% + 13.8%);
+  }
+
+  .header-menu li:nth-child(4).active.entered ~ .underline {
+    left: calc(38% + 26.4%);
+  }
+
+  .header-menu li:nth-child(5).active.entered ~ .underline {
+    left: calc(38% + 38.8%);
+  }
+
+  .header-menu li:nth-child(6).active.entered ~ .underline {
+    left: calc(38% + 51.1%);
+  }
   .wrapper .main.main-content .background {
     height: 99%;
   }
 }
 
-@media(max-width: 950px) {
+@media(max-width: 1100px) {
+  .header-menu li:first-child {
+    margin-right: 18%;
+  }
+}
+
+@media(max-width: 951px) {
   .wrapper .main.main-content h1 {
     font-size: 53px;
   }
