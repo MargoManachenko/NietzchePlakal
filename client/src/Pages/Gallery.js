@@ -114,14 +114,16 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        let sliderController = document.getElementsByClassName("sliderController")[0];
-        let slick = this.sliderRef.current;
-        if (sliderController) {
-            sliderController.addEventListener('wheel', event => {
-                event.preventDefault();
-                event.deltaY > 0 ? slick.slickNext() : slick.slickPrev();
-            }, false)
-        }
+        setTimeout(() => {
+            let sliderController = document.getElementsByClassName("sliderController")[0];
+            let slick = this.sliderRef.current;
+            if (sliderController) {
+                sliderController.addEventListener('wheel', event => {
+                    event.preventDefault();
+                    event.deltaY > 0 ? slick.slickNext() : slick.slickPrev();
+                }, false)
+            }
+        }, 9000)
     }
 
     componentWillUnmount() {
@@ -180,9 +182,9 @@ class Gallery extends React.Component {
             slickClassName = "center entering";
         }
         // let sliderController = document.getElementsByClassName("sliderController")[0];
-        // let sliderPhoto= document.getElementsByClassName("fade")[0];
+        // let sliderPhoto = document.getElementsByClassName("fade")[0];
         // let slidesToShow = 3;
-        // if(sliderController){
+        // if (sliderController) {
         //     slidesToShow = Math.round(sliderController.offsetWidth / sliderPhoto.offsetWidth);
         //     console.log(slidesToShow)
         // }
