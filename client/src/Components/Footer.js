@@ -17,7 +17,7 @@ const Footer = (props) => (
             </div>
         </div>
         <div className="question-block">
-            <Link to="" className="question"><Translate id="base.footer.naming">why did we choose this name?</Translate></Link>
+            <a href="" className="question"><Translate id="base.footer.naming">why did we choose this name?</Translate></a>
         </div>
     </footer>
 );

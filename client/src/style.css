@@ -434,7 +434,8 @@ header {
 
 .wrapper.en .main.contact-content button.send {
   width: 10.7em;
-  font-family: Brandon_med, sans-serif; }
+  font-family: Brandon_med, sans-serif;
+  transition: all 0.75s ease; }
 
 .wrapper.ru .main.contact-content button.send,
 .wrapper.ua .main.contact-content button.send {
@@ -522,7 +523,7 @@ header {
 .wrapper.ua .main.gallery-content h2:before {
   content: '';
   float: right;
-  width: 22em;
+  width: 23em;
   height: 1em; }
 
 .wrapper.dark .main.gallery-content h2 {
@@ -595,7 +596,6 @@ header {
   justify-content: center; }
 
 .main.music-content .songs {
-  overflow-x: auto;
   width: 60%;
   margin-top: -2em; }
 
