@@ -596,11 +596,24 @@ header {
   justify-content: center; }
 
 .main.music-content .songs {
+  overflow-x: auto;
   width: 60%;
   margin-top: -2em; }
 
 .main.music-content .songs .song:first-child {
   margin-top: 2em; }
+
+.main.music-content .songs::-webkit-scrollbar {
+  width: 4px; }
+
+.main.music-content .songs::-webkit-scrollbar-track {
+  border-radius: 2px; }
+
+.main.music-content .songs::-webkit-scrollbar-thumb {
+  appearance: none;
+  border-radius: 2px;
+  background-color: #a1a1a1;
+  cursor: pointer; }
 
 .main.music-content .song {
   display: flex;
