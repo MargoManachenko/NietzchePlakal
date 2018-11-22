@@ -25,7 +25,7 @@ const Sidebar = () => (
         <Transition timeout={100} in={true} appear>
             {(status => (
                 <div className={window.loadingAnimation === undefined ? "sidebar-logo " + status : "sidebar-logo"}>
-                    <Link to="/" className="logo">NIETZSCHE<br/>PLAKAL</Link>
+                    <a href="" className="logo">NIETZSCHE<br/>PLAKAL</a>
                 </div>
             ))}
         </Transition>

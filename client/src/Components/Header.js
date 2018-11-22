@@ -33,15 +33,15 @@ class Header extends React.Component {
 
         if(window.innerWidth > 1670){
             breakPoints = breakPoints1920px;
-            console.log("> 1670");
+            // console.log("> 1670");
         }
         if(window.innerWidth <= 1670){
             breakPoints = breakPoints1670px;
-            console.log("1670");
+            // console.log("1670");
         }
         if(window.innerWidth <= 1280){
             breakPoints = breakPoints1280px;
-            console.log("1280");
+            // console.log("1280");
         }
 
 

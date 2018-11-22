@@ -16,8 +16,8 @@ class Base extends React.Component {
             theme: '',
             lang: '',
             fade: false,
-            // loading: true
-            loading: false
+            loading: true
+            // loading: false
         };
 
         this.ChangeTheme = this.ChangeTheme.bind(this);
@@ -28,7 +28,7 @@ class Base extends React.Component {
 
     componentDidMount() {
         let LocalStorageTheme = localStorage.getItem('theme');
-        let theme = LocalStorageTheme === null ? 'light' : LocalStorageTheme;
+        let theme = LocalStorageTheme === null ? 'dark' : LocalStorageTheme;
 
         let langFromWindow = window.lang;
         let lang = langFromWindow === undefined ? 'en' : langFromWindow;
@@ -39,8 +39,8 @@ class Base extends React.Component {
         this.setState({
                 theme: theme,
                 lang: lang,
-                // loading: loading
-                loading: false
+                loading: loading
+                // loading: false
             }, () => {
                 if (this.state.loading === true) {
                     window.loading = false;
@@ -48,7 +48,7 @@ class Base extends React.Component {
             }
         );
 
-        // setTimeout(() => this.setState({loading: false}), 9000);
+        setTimeout(() => this.setState({loading: false}), 9000);
     }
 
     ChangeLang(langCode) {
@@ -65,12 +65,12 @@ class Base extends React.Component {
         setTimeout(() => {
             if (newTheme !== this.state.theme) {
                 this.setState({
-                    theme: newTheme
-                    // fade: true
+                    theme: newTheme,
+                    fade: true
                 });
                 localStorage.setItem('theme', newTheme);
             }
-            // setTimeout(this.FadeToFalse, 1000);
+            setTimeout(this.FadeToFalse, 1000);
             this.FadeToFalse();
         }, 200)
     }

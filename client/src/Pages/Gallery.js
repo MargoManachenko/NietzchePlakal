@@ -179,14 +179,13 @@ class Gallery extends React.Component {
         else {
             slickClassName = "center entering";
         }
-        let sliderController = document.getElementsByClassName("sliderController")[0];
-        let sliderPhoto= document.getElementsByClassName("fade")[0];
-        let slidesToShow = 3;
-        if(sliderController){
-            slidesToShow = Math.round(sliderController.offsetWidth / sliderPhoto.offsetWidth);
-            console.log(slidesToShow)
-        }
-
+        // let sliderController = document.getElementsByClassName("sliderController")[0];
+        // let sliderPhoto= document.getElementsByClassName("fade")[0];
+        // let slidesToShow = 3;
+        // if(sliderController){
+        //     slidesToShow = Math.round(sliderController.offsetWidth / sliderPhoto.offsetWidth);
+        //     console.log(slidesToShow)
+        // }
 
         const settings = {
             className: slickClassName,
@@ -209,7 +208,7 @@ class Gallery extends React.Component {
 
                             <h2 className={this.state.showInstruction ? "showInstruction" : "hideInstruction"}>
                                 <Translate
-                                    id="content.gallery.instruction">DRAG TO MOVE</Translate></h2>
+                                    id="content.gallery.instruction">SCROLL TO MOVE</Translate></h2>
 
                             <PhotoLightbox
                                 show={this.state.fullSizePicture}
