@@ -179,12 +179,21 @@ class Gallery extends React.Component {
         else {
             slickClassName = "center entering";
         }
+        let sliderController = document.getElementsByClassName("sliderController")[0];
+        let sliderPhoto= document.getElementsByClassName("fade")[0];
+        let slidesToShow = 3;
+        if(sliderController){
+            slidesToShow = Math.round(sliderController.offsetWidth / sliderPhoto.offsetWidth);
+            console.log(slidesToShow)
+        }
+
 
         const settings = {
             className: slickClassName,
-            infinite: false,
+            infinite: true,
             // centerPadding: "60px",
-            slidesToShow: 4,
+            // slidesToShow: slidesToShow-2,
+            slidesToShow: 3,
             centerPadding: 0,
             arrows: false,
             swipeToSlide: true,

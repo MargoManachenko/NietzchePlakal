@@ -311,54 +311,9 @@
 }
 
 /*Header underline*/
-.header-menu {
-    position: relative;
-}
 
-.header-menu .underline {
-    display: block;
-    width: 1.5em;
-    position: absolute;
-    top: 2em;
-    border-bottom: 1px solid white;
-    transition: all 2s ease;
-}
 
-.header-menu li:first-child.active ~ .underline {
-    transition: all 2s ease;
-}
 
-.header-menu li:first-child.active.entered ~ .underline {
-    left: -0.7%;
-}
-
-.header-menu li:nth-child(2).active.entered ~ .underline {
-    left: 54.4%;
-}
-
-.header-menu li:nth-child(3).active.entered ~ .underline {
-    left: 63.4%;
-}
-
-.header-menu li:nth-child(4).active.entered ~ .underline {
-    left: 72.3%;
-}
-
-.header-menu li:nth-child(5).active.entered ~ .underline {
-    left: 81.3%;
-}
-
-.header-menu li:nth-child(6).active.entered ~ .underline {
-    left: 90.4%;
-}
-
-.wrapper.dark .header-menu li.active ~ .underline {
-    border-bottom: 1px solid white;
-}
-
-.wrapper.light .header-menu ~ .underline {
-    border-bottom: 1px solid white;
-}
 
 .burger-box {
     width: 19px;
@@ -386,7 +341,7 @@
 
 .burger-box .line1,
 .burger-box .line2 {
-    transition: all 2s ease;
+    transition: all 3s ease;
 }
 
 .burger-box.entering .line1 {

@@ -198,9 +198,10 @@ header {
   color: #b79f80; }
 
 .header-menu {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  width: 100%; }
+  position: relative; }
 
 .header-menu li {
   height: 2em;
@@ -209,6 +210,41 @@ header {
 
 .header-menu li:first-child {
   margin-right: 46%; }
+
+.header-menu .underline {
+  display: block;
+  width: 1.5em;
+  position: absolute;
+  top: 2em;
+  border-bottom: 1px solid white;
+  transition: all 2s ease; }
+
+.header-menu li:first-child.active ~ .underline {
+  transition: all 2s ease; }
+
+.header-menu li:first-child.active.entered ~ .underline {
+  left: -0.7%; }
+
+.header-menu li:nth-child(2).active.entered ~ .underline {
+  left: calc(46% + 8.4%); }
+
+.header-menu li:nth-child(3).active.entered ~ .underline {
+  left: calc(46% + 17.4%); }
+
+.header-menu li:nth-child(4).active.entered ~ .underline {
+  left: calc(46% + 26.3%); }
+
+.header-menu li:nth-child(5).active.entered ~ .underline {
+  left: calc(46% + 35.3%); }
+
+.header-menu li:nth-child(6).active.entered ~ .underline {
+  left: calc(46% + 44.4%); }
+
+.wrapper.dark .header-menu li.active ~ .underline {
+  border-bottom: 1px solid white; }
+
+.wrapper.light .header-menu ~ .underline {
+  border-bottom: 1px solid white; }
 
 .news .news-item {
   font-size: 10px;
@@ -829,11 +865,29 @@ footer a.question {
 @media (max-width: 1670px) {
   .header-menu li:first-child {
     margin-right: 38%; }
+  .header-menu li:first-child.active.entered ~ .underline {
+    left: -0.8%; }
+  .header-menu li:nth-child(2).active.entered ~ .underline {
+    left: calc(38% + 9.6%); }
+  .header-menu li:nth-child(3).active.entered ~ .underline {
+    left: calc(38% + 20%); }
+  .header-menu li:nth-child(4).active.entered ~ .underline {
+    left: calc(38% + 30.4%); }
+  .header-menu li:nth-child(5).active.entered ~ .underline {
+    left: calc(38% + 40.9%); }
+  .header-menu li:nth-child(6).active.entered ~ .underline {
+    left: calc(38% + 51.3%); }
   .main.about-content {
     padding: 2vh calc(4.5vw + 25.5em) 30vh 4.5vw; }
   .wrapper.ru .header-menu li:first-child,
   .wrapper.ua .header-menu li:first-child {
     margin-right: 21%; } }
+
+@media (max-width: 1400px) {
+  .wrapper h2,
+  .header-menu,
+  .wrapper .sidebar-logo a.logo {
+    font-size: 10.5px; } }
 
 @media (max-width: 1280px) {
   .wrapper .main.main-content h1 {
@@ -861,10 +915,26 @@ footer a.question {
     font-size: 10px; }
   .header-menu li:first-child {
     margin-right: 28%; }
+  .header-menu li:first-child.active.entered ~ .underline {
+    left: -0.8%; }
+  .header-menu li:nth-child(2).active.entered ~ .underline {
+    left: calc(38% + 1.6%); }
+  .header-menu li:nth-child(3).active.entered ~ .underline {
+    left: calc(38% + 13.8%); }
+  .header-menu li:nth-child(4).active.entered ~ .underline {
+    left: calc(38% + 26.4%); }
+  .header-menu li:nth-child(5).active.entered ~ .underline {
+    left: calc(38% + 38.8%); }
+  .header-menu li:nth-child(6).active.entered ~ .underline {
+    left: calc(38% + 51.1%); }
   .wrapper .main.main-content .background {
     height: 99%; } }
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
+  .header-menu li:first-child {
+    margin-right: 18%; } }
+
+@media (max-width: 951px) {
   .wrapper .main.main-content h1 {
     font-size: 53px; }
   .header-menu li:first-child {
