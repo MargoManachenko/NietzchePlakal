@@ -1,12 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.post('/api/contact', (req, res) => {
     const name = req.body.name;
@@ -55,6 +58,10 @@ app.post('/api/contact', (req, res) => {
 
 app.get('/api/hello', (req, res) => {
     res.send({express: 'Hello From Express'});
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
