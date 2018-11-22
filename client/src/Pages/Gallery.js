@@ -9,10 +9,13 @@ import PhotoLightbox from '../Components/PhotoLightbox';
 import id1photo1x from '../public/gallery/1.jpg';
 import id1photo2x from '../public/gallery/1@2x.jpg';
 import id1photo3x from '../public/gallery/1@3x.jpg';
+import id1photoBig from '../public/gallery/Big1.png';
+
 
 import id2photo1x from '../public/gallery/2.jpg';
 import id2photo2x from '../public/gallery/2@2x.jpg';
 import id2photo3x from '../public/gallery/2@3x.jpg';
+import id2photoBig from '../public/gallery/Big2.png';
 import id2photoBig1x from '../public/gallery/2Big.jpg';
 import id2photoBig2x from '../public/gallery/2Big@2x.jpg';
 import id2photoBig3x from '../public/gallery/2Big@3x.jpg';
@@ -20,18 +23,22 @@ import id2photoBig3x from '../public/gallery/2Big@3x.jpg';
 import id3photo1x from '../public/gallery/3.jpg';
 import id3photo2x from '../public/gallery/3@2x.jpg';
 import id3photo3x from '../public/gallery/3@3x.jpg';
+import id3photoBig from '../public/gallery/Big3.png';
 
 import id4photo1x from '../public/gallery/4.jpg';
 import id4photo2x from '../public/gallery/4@2x.jpg';
 import id4photo3x from '../public/gallery/4@3x.jpg';
+import id4photoBig from '../public/gallery/Big4.png';
 
 import id5photo1x from '../public/gallery/5.jpg';
 import id5photo2x from '../public/gallery/5@2x.jpg';
 import id5photo3x from '../public/gallery/5@3x.jpg';
+import id5photoBig from '../public/gallery/Big5.png';
 
 import id6photo1x from '../public/gallery/6.jpg';
 import id6photo2x from '../public/gallery/6@2x.jpg';
 import id6photo3x from '../public/gallery/6@3x.jpg';
+import id6photoBig from '../public/gallery/Big6.jpg';
 
 class Gallery extends React.Component {
 
@@ -64,42 +71,48 @@ class Gallery extends React.Component {
                 photoId: 1,
                 cover1x: id1photo1x,
                 cover2x: id1photo2x,
-                cover3x: id1photo3x
+                cover3x: id1photo3x,
+                coverBig: id1photoBig
             },
             {
                 photoId: 2,
                 cover1x: id2photo1x,
                 cover2x: id2photo2x,
                 cover3x: id2photo3x,
+                coverBig: id2photoBig
 
-                cover1xBig: id2photoBig1x,
-                cover2xBig: id2photoBig2x,
-                cover3xBig: id2photoBig3x
+                // cover1xBig: id2photoBig1x,
+                // cover2xBig: id2photoBig2x,
+                // cover3xBig: id2photoBig3x
 
             },
             {
                 photoId: 3,
                 cover1x: id3photo1x,
                 cover2x: id3photo2x,
-                cover3x: id3photo3x
+                cover3x: id3photo3x,
+                coverBig: id3photoBig
             },
             {
                 photoId: 4,
                 cover1x: id4photo1x,
                 cover2x: id4photo2x,
-                cover3x: id4photo3x
+                cover3x: id4photo3x,
+                coverBig: id4photoBig
             },
             {
                 photoId: 5,
                 cover1x: id5photo1x,
                 cover2x: id5photo2x,
-                cover3x: id5photo3x
+                cover3x: id5photo3x,
+                coverBig: id5photoBig
             },
             {
                 photoId: 6,
                 cover1x: id6photo1x,
                 cover2x: id6photo2x,
-                cover3x: id6photo3x
+                cover3x: id6photo3x,
+                coverBig: id6photoBig
             }
         ];
 
@@ -214,9 +227,10 @@ class Gallery extends React.Component {
 
                             <PhotoLightbox
                                 show={this.state.fullSizePicture}
-                                currentPictureBig1x={this.state.currentPhoto.cover1xBig}
-                                currentPictureBig2x={this.state.currentPhoto.cover2xBig}
-                                currentPictureBig3x={this.state.currentPhoto.cover3xBig}
+                                currentPictureBig={this.state.currentPhoto.coverBig}
+                                // currentPictureBig1x={this.state.currentPhoto.cover1xBig}
+                                // currentPictureBig2x={this.state.currentPhoto.cover2xBig}
+                                // currentPictureBig3x={this.state.currentPhoto.cover3xBig}
                             />
 
                             <div className={"sliderController " + status} id="slider">

@@ -9,7 +9,8 @@ const PhotoLightbox =(props)=>(
         <div className="photo-container">
             <img className="icon-close-lightbox" src={close}  alt=""/>
             {/*<div className="photo">*/}
-                <img className="bigPhoto" src={props.currentPictureBig1x} srcSet={`${props.currentPictureBig2x} 2x, ${props.currentPictureBig3x} 3x`} alt=""/>
+                {/*<img className="bigPhoto" src={props.currentPictureBig1x} srcSet={`${props.currentPictureBig2x} 2x, ${props.currentPictureBig3x} 3x`} alt=""/>*/}
+                <img className="bigPhoto" src={props.currentPictureBig} alt=""/>
             {/*</div>*/}
         </div>
     </div>
