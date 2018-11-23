@@ -376,4 +376,10 @@
     align-self: flex-end;
 }
 
+.loading{
+    background: transparent url('https://zierashoes.com/static/version1542761599/frontend/Ziera/default/en_NZ/Magestore_Storelocator/images/ajax-loader.gif') center no-repeat;
+    background-size: 75px 75px;
+}
+
+
 
