@@ -9,6 +9,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-localize-redux": "^3.5.0",
+    "react-preload-image": "^1.0.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "react-slick": "^0.23.2",

@@ -48,32 +48,34 @@ const Sidebar = () => (
         </Transition>
         <div className="social-media dark">
             <div className="icons-block">
-                <a href="https://www.facebook.com/groups/229537741151285/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/groups/229537741151285/">
                     <img src={darkFacebookIcon} title="Facebook" alt=""/>
                 </a>
-                <a href="https://www.instagram.com/nietzsche_plakal/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/nietzsche_plakal/">
                     <img src={darkInstagram} title="Instagram" alt=""/>
                 </a>
-                <a href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
                     <img src={darkYouTubeIcon} title="YouTube" alt=""/>
                 </a>
-                <a href="/">
+                <a target="_blank" rel="noopener noreferrer" href="/">
                     <img src={darkTelegramIcon} title="Telegram" alt=""/>
                 </a>
             </div>
         </div>
         <div className="social-media light">
             <div className="icons-block">
-                <a href="https://www.facebook.com/groups/229537741151285/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/groups/229537741151285/">
                     <img src={lightFacebookIcon} title="Facebook" alt=""/>
                 </a>
-                <a href="https://www.instagram.com/nietzsche_plakal/">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/nietzsche_plakal/">
                     <img src={lightInstagram} title="Instagram" alt=""/>
                 </a>
-                <a href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://www.youtube.com/channel/UClJ-aB1hQGjeAX6mNzGFLqQ">
                     <img src={lightYouTubeIcon} title="YouTube" alt=""/>
                 </a>
-                <a href="/">
+                <a target="_blank" rel="noopener noreferrer" href="/">
                     <img src={lightTelegramIcon} title="Telegram" alt=""/>
                 </a>
             </div>

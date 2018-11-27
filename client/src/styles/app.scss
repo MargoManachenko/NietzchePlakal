@@ -564,13 +564,20 @@ header {
 }
 
 //TODO
-//.main.contact-content input:focus {
-//  box-shadow: 0 0 6px 0 rgba(194, 194, 194, 0.87);
-//}
+.main.contact-content input:focus {
+  box-shadow: 0 5px 2px -3px rgba(194, 194, 194, 0.87);
+  border-bottom: none;
+}
+
+.main.contact-content input:focus:hover {
+  border-bottom: none;
+}
 
 .main.contact-content input:hover {
   border-bottom: solid 1px $theme-line-active-dark;
 }
+
+//TODO
 
 .main.contact-content .contact-form {
   padding-top: 2em;
@@ -735,6 +742,10 @@ header {
 .main.gallery-content .photo-lightbox .photo-container img.bigPhoto {
   width: 100%;
   height: auto;
+}
+.main.gallery-content .photo-lightbox .photo-container .loading {
+  background: transparent url('https://zierashoes.com/static/version1542761599/frontend/Ziera/default/en_NZ/Magestore_Storelocator/images/ajax-loader.gif') center no-repeat;
+  background-size: 75px 75px;
 }
 
 .main.video-content {

@@ -85,11 +85,11 @@ class Base extends React.Component {
 
     render() {
         // console.log(this.state.fade);
-        if (this.state.loading === true) {
-            return (<div className="wrapper preloading">
-                <img className="preloader" src={logoAnimated} alt=""/>
-            </div>)
-        }
+        // if (this.state.loading === true) {
+        //     return (<div className="wrapper preloading">
+        //         <img className="preloader" src={logoAnimated} alt=""/>
+        //     </div>)
+        // }
         return (
             <Transition timeout={200} in={this.state.fade} appear>
                 {(status => (
