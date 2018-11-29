@@ -63,6 +63,8 @@ class Video extends React.Component {
     handleOutsideClick(e) {
         e.preventDefault();
         if (e.target.id === 'video-lightbox') {
+            let videoIframe = document.getElementsByClassName("video-container")[0].getElementsByTagName("iframe")[0];
+            videoIframe.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
             this.setState({
                 fullSizeVideo: !this.state.fullSizeVideo
             });
@@ -72,7 +74,7 @@ class Video extends React.Component {
     ToggleFullSizeVideo(e) {
         e.preventDefault();
         let number = e.target.id;
-        console.log(number);
+
         let currentVideo = this.state.videoGallery[number - +1];
         this.setState({
             fullSizeVideo: !this.state.fullSizeVideo,
@@ -98,6 +100,7 @@ class Video extends React.Component {
                                         description={video.description}
                                         ToggleFullSizeVideo={this.ToggleFullSizeVideo}
                                         key={index + 1}
+                                        id={index + 1}
                                     />
                                 ))}
                             </div>

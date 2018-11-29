@@ -1,5 +1,4 @@
 import React from 'react';
-import YoutubeEmbedVideo from "youtube-embed-video";
 import {Transition} from 'react-transition-group';
 
 const VideoLightBox = (props) => (
@@ -7,7 +6,7 @@ const VideoLightBox = (props) => (
         {(status => (
             <div className={"video-lightbox " + status} id="video-lightbox" >
                 <div className="video-container">
-                    <YoutubeEmbedVideo videoId={props.videoId} suggestions={false}/>
+                    <iframe  src={"http://www.youtube.com/embed/" + props.videoId + "?enablejsapi=1"} frameBorder="0"/>
                 </div>
             </div>
         ))}

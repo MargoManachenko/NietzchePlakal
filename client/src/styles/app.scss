@@ -788,7 +788,6 @@ header {
 
 .main.video-content {
   overflow: hidden;
-  //z-index: 0;
 }
 
 .main.video-content .video-block {
@@ -799,6 +798,7 @@ header {
   padding-top: 2.5em;
   color: $video-names;
   font-size: 14px;
+  z-index: 0;
 }
 
 .main.video-content .video .screen {

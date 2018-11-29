@@ -588,7 +588,8 @@ header {
   grid-gap: 4em 2em;
   padding-top: 2.5em;
   color: #393939;
-  font-size: 14px; }
+  font-size: 14px;
+  z-index: 0; }
 
 .main.video-content .video .screen {
   background: url("https://images.unsplash.com/photo-1508252592163-5d3c3c559f36?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec1ecefddebe708d9f122e4ef5372b04&auto=format&fit=crop&w=1950&q=80");
