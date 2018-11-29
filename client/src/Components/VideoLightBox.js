@@ -6,7 +6,7 @@ const VideoLightBox = (props) => (
         {(status => (
             <div className={"video-lightbox " + status} id="video-lightbox" >
                 <div className="video-container">
-                    <iframe  src={"http://www.youtube.com/embed/" + props.videoId + "?enablejsapi=1"} frameBorder="0"/>
+                    <iframe  src={"https://www.youtube.com/embed/" + props.videoId + "?enablejsapi=1"} frameBorder="0"/>
                 </div>
             </div>
         ))}
