@@ -43,12 +43,8 @@ class Video extends React.Component {
             {
                 videoId: "7S3MCUNihpI",
                 description: "Music Day Kharkiv 21.05.2018"
-            },
-            {
-                videoId: "ppUidARmZ6I",
-                description: "teklyashka street performance 28.06.2018"
             }
-        ]
+        ];
 
         this.setState({
             videoGallery: videoGallery
@@ -94,6 +90,16 @@ class Video extends React.Component {
                                 videoId={this.state.currentVideo.videoId}
                             />
                             <div className={"video-block " + status}>
+                                {/*{this.state.videoGallery.map((video, index) => (*/}
+                                {/*<VideoIframe*/}
+                                {/*videoId={video.videoId}*/}
+                                {/*description={video.description}*/}
+                                {/*ToggleFullSizeVideo={this.ToggleFullSizeVideo}*/}
+                                {/*key={index + 1}*/}
+                                {/*id={index + 1}*/}
+                                {/*/>*/}
+                                {/*))}*/}
+
                                 {this.state.videoGallery.map((video, index) => (
                                     <VideoIframe
                                         videoId={video.videoId}
