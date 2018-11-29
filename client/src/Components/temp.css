@@ -123,30 +123,7 @@
 
 }
 
-/*Gallery lightbox wrapper*/
-.wrapper .main.gallery-content .photo-lightbox {
-    transition: all 1s ease;
-}
 
-.wrapper .main.gallery-content .photo-lightbox.entering {
-    opacity: 0;
-    z-index: 5;
-}
-
-.wrapper .main.gallery-content .photo-lightbox.entered {
-    opacity: 1;
-    z-index: 5;
-}
-
-.wrapper .main.gallery-content .photo-lightbox.exiting {
-    opacity: 1;
-    z-index: 5;
-}
-
-.wrapper .main.gallery-content .photo-lightbox.exited {
-    opacity: 0;
-    z-index: -1;
-}
 
 .wrapper {
     transition: all 4s ease;
@@ -372,3 +349,4 @@
     border-left: solid 1px #979797;
     align-self: flex-end;
 }
+

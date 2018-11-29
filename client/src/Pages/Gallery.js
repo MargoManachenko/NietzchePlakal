@@ -61,8 +61,6 @@ class Gallery extends React.Component {
         this.ToggleInstruction = this.ToggleInstruction.bind(this);
         this.FadeSlick = this.FadeSlick.bind(this);
         this.GetCoordinates = this.GetCoordinates.bind(this);
-
-
     }
 
     componentWillMount() {

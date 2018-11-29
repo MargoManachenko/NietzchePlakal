@@ -717,7 +717,8 @@ header {
   color: rgba(183, 159, 128, 0.25);
 }
 
-.main.gallery-content .photo-lightbox {
+.main.gallery-content .photo-lightbox,
+.wrapper .main.video-content .video-lightbox {
   position: absolute;
   background-color: rgba(34, 34, 34, 0.88);
   z-index: 5;
@@ -726,30 +727,68 @@ header {
   width: 100%;
 }
 
-.main.gallery-content .photo-lightbox .photo-container {
+.main.gallery-content .photo-lightbox .photo-container,
+.wrapper .main.video-content .video-lightbox .video-container {
   position: absolute;
   margin: auto;
-  left: 0;
+  left: 5vw;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 751px;
-  height: 555px;
+  width: 52vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
 }
 
 .main.gallery-content .photo-lightbox .photo-container img.bigPhoto {
-  width: 100%;
+  width: 52vw;
   height: auto;
 }
+
+.main.video-content .video-lightbox iframe {
+  width: 63vw;
+  height: 80vh;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
 .main.gallery-content .photo-lightbox .photo-container .loading {
   background: transparent url('https://zierashoes.com/static/version1542761599/frontend/Ziera/default/en_NZ/Magestore_Storelocator/images/ajax-loader.gif') center no-repeat;
   background-size: 75px 75px;
 }
 
+//.wrapper .main.video-content .video-lightbox{
+//  position: absolute;
+//  background-color: rgba(34, 34, 34, 0.88);
+//  z-index: 5;
+//  height: 100%;
+//  top: 0;
+//  width: 100%;
+//}
+//.wrapper .main.video-content  .video-lightbox .video-container {
+//  position: absolute;
+//  margin: auto;
+//  left: 0;
+//  right: 0;
+//  top: 0;
+//  bottom: 0;
+//  width: 751px;
+//  height: 555px;
+//  display: flex;
+//  flex-direction: column;
+//}
+
 .main.video-content {
   overflow: hidden;
+  //z-index: 0;
 }
 
 .main.video-content .video-block {
@@ -778,13 +817,72 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .main.video-content .video p {
   position: absolute;
   top: 100%;
+}
+
+/*Gallery lightbox wrapper*/
+.wrapper .main.gallery-content .photo-lightbox,
+.wrapper .main.video-content .video-lightbox {
+  transition: all 1s ease;
+}
+
+.wrapper .main.gallery-content .photo-lightbox.entering,
+.wrapper .main.video-content .video-lightbox.entering {
+  opacity: 0;
+  z-index: 5;
+}
+
+.wrapper .main.gallery-content .photo-lightbox.entered,
+.wrapper .main.video-content .video-lightbox.entered {
+  opacity: 1;
+  z-index: 5;
+}
+
+.wrapper .main.gallery-content .photo-lightbox.exiting,
+.wrapper .main.video-content .video-lightbox.exiting {
+  opacity: 1;
+  z-index: 5;
+}
+
+.wrapper .main.gallery-content .photo-lightbox.exited,
+.wrapper .main.video-content .video-lightbox.exited {
+  opacity: 0;
+  z-index: -1;
+}
+
+.main.gallery-content .photo-lightbox .photo-container,
+.wrapper .main.video-content .video-lightbox .video-container {
+  position: absolute;
+  margin: auto;
+  left: 5vw;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 52vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper .main.video-content .video-lightbox .video-container {
+  width: 80vw;
+}
+
+.main.gallery-content .photo-lightbox .photo-container img.bigPhoto {
+  width: 52vw;
+  height: auto;
+}
+
+.wrapper .main.video-content .video-lightbox iframe {
+  width: 100%;
+  height: 100%;
 }
 
 .main.music-content {
