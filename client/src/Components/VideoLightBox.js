@@ -2,6 +2,10 @@ import React from 'react';
 import YoutubeEmbedVideo from "youtube-embed-video";
 import {Transition} from 'react-transition-group';
 
+
+
+
+
 const VideoLightBox = (props) => (
     <Transition timeout={100} in={props.show} appear>
         {(status => (
