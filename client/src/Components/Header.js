@@ -22,6 +22,8 @@ class Header extends React.Component {
 
 
     componentDidMount() {
+       window.addEventListener('resize', this.ChangePoint);
+
         let prevPointFromWindow = window.prevPoint;
         let enteringStyle = {};
         if (prevPointFromWindow) {
