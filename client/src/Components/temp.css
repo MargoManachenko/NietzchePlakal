@@ -349,3 +349,15 @@
     border-left: solid 1px #979797;
     align-self: flex-end;
 }
+
+.header-menu li:not(:last-child){
+    margin-right: 5.7%;
+}
+
+.header-menu li:first-child {
+    margin-right: 46%;
+}
+
+.header-menu li{
+    display: block;
+}

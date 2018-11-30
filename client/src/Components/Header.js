@@ -3,7 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import {withLocalize, Translate} from "react-localize-redux";
 import {Transition} from 'react-transition-group';
-import globalTranslations from '../translations/global.json'
+import globalTranslations from '../translations/global.json';
 
 class Header extends React.Component {
 
@@ -11,53 +11,32 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            breakPoints: {},
-            currentPoint: null,
-            currentPointNext: null,
-            enteringValue: null,
-            enteringValueNext: null,
+            enteringStyle: null,
+            currentStyle: null,
             loadingAnimation: true
         };
 
         this.props.addTranslation(globalTranslations);
         this.ChangePoint = this.ChangePoint.bind(this);
-        // this.reloadListener();
     }
 
+
     componentDidMount() {
-        let breakPoints;
-        const breakPoints1920px = [-0.7, 54.4, 63.4, 72.3, 81.3, 90.4];
-        const breakPoints1670px = [-0.8, 47.6, 58, 68.4, 78.9, 89.3];
-        const breakPoints1280px = [-0.8, 39.6, 51.8, 64.4, 76.8, 89.1];
-
-
-        if(window.innerWidth > 1670){
-            breakPoints = breakPoints1920px;
-            // console.log("> 1670");
+        let prevPointFromWindow = window.prevPoint;
+        let enteringStyle = {};
+        if (prevPointFromWindow) {
+            enteringStyle = prevPointFromWindow;
         }
-        if(window.innerWidth <= 1670){
-            breakPoints = breakPoints1670px;
-            // console.log("1670");
+        else {
+            enteringStyle = this.GetEnteringStyle();
         }
-        if(window.innerWidth <= 1280){
-            breakPoints = breakPoints1280px;
-            // console.log("1280");
-        }
-
-
-        let LocalStorageCurrentPoint = localStorage.getItem("currentPoint");
-        let localPoint = LocalStorageCurrentPoint === null ? 0 : LocalStorageCurrentPoint;
-        let LocalStorageEnteringValue = localStorage.getItem("enteringValue");
-        let enteringValue = LocalStorageEnteringValue === null ? breakPoints[0] : LocalStorageEnteringValue;
-
         let loadingAnimationFromWindow = window.loadingAnimation;
-        // console.log(window.loadingAnimation);
         let loading = loadingAnimationFromWindow === undefined ? true : loadingAnimationFromWindow;
 
+        this.ChangePoint();
+
         this.setState({
-                breakPoints: breakPoints,
-                currentPoint: localPoint,
-                enteringValue: enteringValue,
+                enteringStyle: enteringStyle,
                 loadingAnimation: loading
             }, () => {
                 if (this.state.loading === true) {
@@ -65,46 +44,57 @@ class Header extends React.Component {
                 }
             }
         );
+
         setTimeout(() => {
             this.setState({loadingAnimation: false});
             window.loadingAnimation = false
         }, 3000);
-        if (this.props.history.location) {
-        }
+    }
+
+    GetEnteringStyle() {
+        const firstLink = document.getElementsByTagName("li")[0];
+        const height = firstLink.getBoundingClientRect().height;
+        const top = firstLink.getBoundingClientRect().top;
+
+        let enteringStyle = {
+            "marginLeft": "-0.5em",
+            "left": "-10em",
+            "top": top + "px",
+            "height": height + "px"
+        };
+        console.log(enteringStyle);
+        return enteringStyle;
     }
 
 
-    // reloadListener() {
-    //     // localStorage.setItem("currentPointNext", false);
-    //     // localStorage.setItem("currentValueNext", false);
-    // }
+    ChangePoint() {
+        setTimeout(()=>{
+            const activeLink = document.getElementsByClassName("active")[0];
+            const height = activeLink.getBoundingClientRect().height;
+            const left = activeLink.getBoundingClientRect().left;
+            const top = activeLink.getBoundingClientRect().top;
 
+            let currentStyle = {
+                "marginLeft": "-0.5em",
+                "left": left + "px",
+                "top": top + "px",
+                "height": height + "px"
+            };
 
-    ChangePoint(value) {
-        let LocalStorageCurrentPoint = localStorage.getItem("currentPointNext");
-        let LocalStorageEnteringValue = localStorage.getItem("enteringValueNext");
+            window.prevPoint = currentStyle;
 
-        localStorage.setItem("currentPoint", LocalStorageCurrentPoint);
-        localStorage.setItem("enteringValue", LocalStorageEnteringValue);
-
-        let valueNumber = Number.parseInt(value.target.id);
-        localStorage.setItem("currentPointNext", valueNumber);
-        let enteringValue = this.state.breakPoints[valueNumber];
-        localStorage.setItem("enteringValueNext", enteringValue);
+            this.setState({
+                currentStyle: currentStyle
+            }, () => console.log('current style ', this.state.currentStyle));
+        } , 100)
     }
 
     render() {
         const activeClass = (route) => {
             return window.location.pathname === route ? "active " : null;
         };
-        let enteringStyle = {};
-        enteringStyle = {left: this.state.enteringValue + "%"};
-        if (this.state.loadingAnimation) {
-            enteringStyle = {left: "-10%"};
-        }
 
         return (
-
             <header>
                 <Transition timeout={100} in={true} appear>
                     {(status => (
@@ -136,8 +126,9 @@ class Header extends React.Component {
                                                                  to="/video"><Translate
                                 id="base.menu.video">VIDEO</Translate></Link></li>
                             <span className={"underline " + status}
-                                  style={status === "entering" ? enteringStyle : null}/>
+                                  style={status === "entering" ? this.state.enteringStyle : this.state.currentStyle}/>
                         </ul>
+
                     ))}
                 </Transition>
                 <Transition timeout={100} in={this.state.loadingAnimation} appear>
@@ -176,7 +167,6 @@ class Header extends React.Component {
                     ))}
                 </Transition>
             </header>
-
         )
     }
 }
