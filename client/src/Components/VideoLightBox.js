@@ -1,10 +1,6 @@
 import React from 'react';
 import {Transition} from 'react-transition-group';
 
-
-
-
-
 const VideoLightBox = (props) => (
     <Transition timeout={100} in={props.show} appear>
         {(status => (
