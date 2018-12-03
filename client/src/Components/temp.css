@@ -8,7 +8,7 @@
 }
 
 .news li {
-    transition: all 3s ease;
+    transition: right 3s ease, top 3s ease, opacity 3s ease;
 }
 
 .news li:first-child.entered {
@@ -50,7 +50,7 @@
 .wrapper .sidebar-logo.entered {
     opacity: 1;
     position: relative;
-    transition: all 3s ease;
+    transition: top 3s ease, opacity 3s ease;
     top: 0;
 }
 
@@ -80,10 +80,11 @@
 
 /*Home - h1 header*/
 .wrapper .main.main-content h1 {
-    transition: all 3s ease;
+    transition: top 3s ease, opacity 3s ease;
 }
 
 .wrapper .main.main-content h1.entering {
+
     opacity: 0;
     top: -1em;
 }

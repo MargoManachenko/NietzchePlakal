@@ -77,12 +77,13 @@ ul {
   text-shadow: 0 1px 4px rgba(25, 25, 25, 0);
 }
 
-.wrapper.dark .main.main-content h1 {
-  color: $h1-color-dark;
-}
 
 .wrapper.light .main.main-content h1 {
   color: $h1-color-light;
+}
+
+.wrapper.dark .main.main-content h1 {
+  color: $h1-color-dark;
 }
 
 .wrapper .main.main-content .background {
@@ -863,6 +864,7 @@ header {
 }
 
 .main.music-content .songs-center {
+  height: calc(70vh - 20%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -870,6 +872,7 @@ header {
 }
 
 .main.music-content .songs {
+  height: 100%;
   overflow-x: auto;
   width: 60%;
   margin-top: -2em;
@@ -1343,5 +1346,12 @@ footer a.question {
   }
   header {
     grid-gap: 14%;
+  }
+}
+
+@media(max-height: 500px){
+  .content, .sidebar {
+    display: grid;
+    grid-auto-rows: 21.25vh 73vh 5.75vh;
   }
 }
