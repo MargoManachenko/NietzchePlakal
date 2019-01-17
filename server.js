@@ -25,10 +25,10 @@ app.post('/api/contact', (req, res) => {
         auth: {
             type: "OAuth2",
             user: 'r.manachenko@gmail.com',
-            clientId: '459609289743-ki5av5jjbkanrk5tdbn0bt3qrb4vqdkd.apps.googleusercontent.com',
-            clientSecret: 'tAzRo9fdnem0OYq9l-cyjF6A',
-            refreshToken: '1/PBrXrlu60220iWUuYNchkBGpCLWcTSimXFt0drSySVc',
-            accessToken: 'ya29.GltBBlXlDCWEKij-mE3Bzs8A89MfY6_fmlI8oH2rKWNyJJ-PMMhpkWnsTP6sxbuVVsf1I436VkBEwI_CwzbmY5JgK3XP2dGb--tL_I2qDEdfUjRElbr-Imn9brqW'
+            clientId: 'secret info',
+            clientSecret: 'secret info',
+            refreshToken: 'secret info',
+            accessToken: 'secret info'
         }
     });
 
